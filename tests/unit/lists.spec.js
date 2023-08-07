@@ -2,72 +2,42 @@ import { shallowMount } from "@vue/test-utils";
 import Lists from "@/components/Lists";
 
 describe("Lists.vue", () => {
+  // Props
+  it("renders props.tasks when passed", () => {});
 
-// Props
-  it("renders props.tasks when passed", () => {
+  it("renders props.importantTasks when passed", () => {});
 
-  });
+  it("renders props.todayTasks when passed", () => {});
 
-  it("renders props.importantTasks when passed", () => {
+  // Button Important
 
-  });
+  it("important button is calling function displayImportantTasks", () => {});
 
-  it("renders props.todayTasks when passed", () => {
+  it("condition display message", () => {});
 
-  });
+  it("loop displaying list of importantTasks", () => {});
 
-// Button Important
+  // Button Today
 
-  it("important button is calling function displayImportantTasks", () => {
+  it("important button is calling function displayTodayTasks", () => {});
 
-  });
+  it("condition display message", () => {});
 
-  it("condition display message", () => {
+  it("loop displaying list of todayTasks", () => {});
 
-  });
+  // Import Component
 
-  it("loop displaying list of importantTasks", () => {
+  it("import component TaskItem working", () => {});
 
-  });
+  // Listeners
 
-// Button Today
+  it("listeners receiving emit", () => {});
 
-  it("important button is calling function displayTodayTasks", () => {
+  // Emit
 
-  });
+  it("emit an addImportant event", () => {});
 
-  it("condition display message", () => {
+  it("emit an addToday event", () => {});
 
-  });
-
-  it("loop displaying list of todayTasks", () => {
-
-  });
-
-// Import Component
-
-  it("import component TaskItem working", () => {
-
-  });
-
-// Listeners
-
-  it("listeners receiving emit", () => {
-
-  });
-
-// Emit
-
-  it("emit an addImportant event", () => {
-
-  });
-
-  it("emit an addToday event", () => {
-
-  });
-
-  it("emit task id event", () => {
-
-  });
-
+  it("emit task id event", () => {});
 });

@@ -1,15 +1,15 @@
 <template>
-  <TaskItem></TaskItem>
+  <ListOfTasks></ListOfTasks>
 </template>
 
 <script>
-import TaskItem from "./TaskItem.vue";
+import ListOfTasks from "./ListOfTasks.vue";
 
 export default {
-  name: "ListOfTasks",
+  name: "ListOfLists",
 
   components: {
-    TaskItem,
+    ListOfTasks,
   },
 };
 </script>
