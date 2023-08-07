@@ -1,9 +1,8 @@
 # 582-app-to-do-list-vue
 
 ## App To do List
-```
+
 This is an application developed with Vue.js that allows users to efficiently organize and track their tasks. The app provides features to view task lists, mark tasks as important, and highlight tasks for the current day.
-```
 
 ## Application Features
 
