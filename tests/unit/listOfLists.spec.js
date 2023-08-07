@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
-import Lists from "@/components/Lists";
+import ListOfLists from "@/components/ListOfLists";
 
-describe("Lists.vue", () => {
+describe("ListOfLists.vue", () => {
   // Props
   it("renders props.tasks when passed", () => {});
 
