@@ -34,7 +34,19 @@ describe("TaskItem.vue", () => {
     expect(wrapper.emitted().addImportant).toBeTruthy();
   });
 
-  //   it("emit an addToday event", () => {});
-
+  it("emit an deleteTask event", () => {
+    const tasks = {
+      id: 1,
+      name: "Task 1",
+      date: "2023-01-01",
+      responsability: "Person 1",
+      list_id: 1,
+    };
+    const wrapper = shallowMount(TaskItem, {
+      props: { tasks },
+    });
+    wrapper.vm.deleteTask();
+    expect(wrapper.emitted().deleteTask).toBeTruthy();
+  });
   //   it("emit task id event", () => {});
 });
