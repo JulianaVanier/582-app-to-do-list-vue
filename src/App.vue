@@ -1,12 +1,12 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <ListOfLists></ListOfLists>
+  <CategoriesLists></CategoriesLists>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
-import ListOfLists from "./components/ListOfLists.vue";
+import CategoriesLists from "./components/CategoriesLists.vue";
 
 export default {
   name: "App",
@@ -74,7 +74,7 @@ export default {
   },
   components: {
     // HelloWorld,
-    ListOfLists,
+    CategoriesLists,
   },
 };
 </script>
