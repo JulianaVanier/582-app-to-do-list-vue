@@ -1,7 +1,7 @@
 <template>
   <div class="task-item">
     <h1>{{ tasks.listName }}</h1>
-    <h2>Name: {{ tasks.name }}</h2>
+    <h2>{{ tasks.name }}</h2>
     <p>Date: {{ tasks.date }}</p>
     <p>Responsability: {{ tasks.responsability }}</p>
     <button data testid="addImportant" @click="addImportant">
