@@ -7,6 +7,7 @@
     <button data testid="addImportant" @click="addImportant">
       Add Important
     </button>
+    <button data testid="deleteTask" @click="deleteTask">Delete Task</button>
   </div>
 </template>
 
@@ -22,6 +23,9 @@ export default {
   methods: {
     addImportant() {
       this.$emit("addImportant", this.tasks.id);
+    },
+    deleteTask() {
+      this.$emit("deleteTask", this.tasks.id);
     },
   },
 };

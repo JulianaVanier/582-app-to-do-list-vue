@@ -7,6 +7,7 @@
     :key="task.id"
     :tasks="task"
     @addImportant="addImportant"
+    @deleteTask="deleteTask"
   >
   </TaskItem>
 </template>
@@ -103,6 +104,14 @@ export default {
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = true;
           console.log(this.tasks[i].labelImportant);
+        }
+      }
+    },
+    deleteTask(id) {
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].id === id) {
+          // https://bytearcher.com/articles/how-to-delete-value-from-array/
+          this.tasks.splice(i, 1);
         }
       }
     },
