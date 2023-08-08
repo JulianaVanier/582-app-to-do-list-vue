@@ -2,7 +2,13 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <CategoriesLists></CategoriesLists> -->
-  <TaskItem v-for="task in tasks" :key="task.id" :tasks="task"> </TaskItem>
+  <TaskItem
+    v-for="task in tasks"
+    :key="task.id"
+    :tasks="task"
+    @addImportant="addImportant"
+  >
+  </TaskItem>
 </template>
 
 <script>
@@ -36,6 +42,7 @@ export default {
           responsability: "Person 1",
           listId: 1,
           listName: "List 1",
+          labelImportant: false,
         },
         {
           id: 2,
@@ -44,6 +51,7 @@ export default {
           responsability: "Person 2",
           listId: 2,
           listName: "List 2",
+          labelImportant: false,
         },
         {
           id: 3,
@@ -52,6 +60,7 @@ export default {
           responsability: "Person 3",
           listId: 2,
           listName: "List 2",
+          labelImportant: false,
         },
         {
           id: 4,
@@ -60,6 +69,7 @@ export default {
           responsability: "Person 4",
           listId: 3,
           listName: "List 3",
+          labelImportant: false,
         },
         {
           id: 5,
@@ -68,6 +78,7 @@ export default {
           responsability: "Person 5",
           listId: 3,
           listName: "List 3",
+          labelImportant: false,
         },
         {
           id: 6,
@@ -76,6 +87,7 @@ export default {
           responsability: "Person 6",
           listId: 3,
           listName: "List 3",
+          labelImportant: false,
         },
       ],
     };
@@ -84,6 +96,16 @@ export default {
     // HelloWorld,
     // CategoriesLists,
     TaskItem,
+  },
+  methods: {
+    addImportant(id) {
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].id === id) {
+          this.tasks[i].labelImportant = true;
+          console.log(this.tasks[i].labelImportant);
+        }
+      }
+    },
   },
 };
 </script>
