@@ -1,8 +1,9 @@
 <template>
   <div class="task-item">
-    <h2>{{ tasks.name }}</h2>
-    <p>{{ tasks.date }}</p>
-    <p>{{ tasks.responsability }}</p>
+    <h1>{{ tasks.listName }}</h1>
+    <h2>Name: {{ tasks.name }}</h2>
+    <p>Date:{{ tasks.date }}</p>
+    <p>Responsability:{{ tasks.responsability }}</p>
   </div>
 </template>
 

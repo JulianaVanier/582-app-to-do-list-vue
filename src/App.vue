@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <CategoriesLists></CategoriesLists> -->
   <TaskItem v-for="task in tasks" :key="task.id" :tasks="task"> </TaskItem>
@@ -34,42 +34,48 @@ export default {
           name: "Task 1",
           date: "2023-01-01",
           responsability: "Person 1",
-          list_id: 1,
+          listId: 1,
+          listName: "List 1",
         },
         {
           id: 2,
           name: "Task 2",
           date: "2023-01-02",
           responsability: "Person 2",
-          list_id: 2,
+          listId: 2,
+          listName: "List 2",
         },
         {
           id: 3,
           name: "Task 3",
           date: "2023-01-03",
           responsability: "Person 3",
-          list_id: 2,
+          listId: 2,
+          listName: "List 2",
         },
         {
           id: 4,
           name: "Task 4",
           date: "2023-01-04",
           responsability: "Person 4",
-          list_id: 3,
+          listId: 3,
+          listName: "List 3",
         },
         {
           id: 5,
           name: "Task 5",
           date: "2023-01-05",
           responsability: "Person 5",
-          list_id: 3,
+          listId: 3,
+          listName: "List 3",
         },
         {
           id: 6,
           name: "Task 6",
           date: "2023-01-06",
           responsability: "Person 6",
-          list_id: 3,
+          listId: 3,
+          listName: "List 3",
         },
       ],
     };
