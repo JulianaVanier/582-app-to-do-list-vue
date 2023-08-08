@@ -1,12 +1,14 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <CategoriesLists></CategoriesLists>
+  <!-- <CategoriesLists></CategoriesLists> -->
+  <TaskItem v-for="task in tasks" :key="task.id" :tasks="task"> </TaskItem>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
-import CategoriesLists from "./components/CategoriesLists.vue";
+// import CategoriesLists from "./components/CategoriesLists.vue";
+import TaskItem from "./components/TaskItem.vue";
 
 export default {
   name: "App",
@@ -24,7 +26,7 @@ export default {
         {
           id: 3,
           name: "List 3",
-        }
+        },
       ],
       tasks: [
         {
@@ -69,12 +71,13 @@ export default {
           responsability: "Person 6",
           list_id: 3,
         },
-      ]
+      ],
     };
   },
   components: {
     // HelloWorld,
-    CategoriesLists,
+    // CategoriesLists,
+    TaskItem,
   },
 };
 </script>

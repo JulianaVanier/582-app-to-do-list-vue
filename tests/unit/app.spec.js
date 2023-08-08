@@ -1,18 +1,18 @@
-import { shallowMount } from "@vue/test-utils";
-import App from "@/App";
+// import { shallowMount } from "@vue/test-utils";
+// import App from "@/App";
 
-describe("App.vue", () => {
-  // Import Component
+// describe("App.vue", () => {
+//   // Import Component
 
-  it("import component Lists working", () => {});
+//   it("import component Lists working", () => {});
 
-  // Listeners
+//   // Listeners
 
-  it("listeners receiving emit", () => {});
+//   it("listeners receiving emit", () => {});
 
-  //Array's
+//   //Array's
 
-  it("array importantTasks receiving id's", () => {});
+//   it("array importantTasks receiving id's", () => {});
 
-  it("array todayTasks receiving id's", () => {});
-});
+//   it("array todayTasks receiving id's", () => {});
+// });

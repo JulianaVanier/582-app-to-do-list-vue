@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <ListOfTasks></ListOfTasks>
 </template>
 
@@ -14,4 +14,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss"></style> -->

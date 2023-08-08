@@ -1,43 +1,43 @@
-import { shallowMount } from "@vue/test-utils";
-import CategoriesLists from "@/components/CategoriesLists";
+// import { shallowMount } from "@vue/test-utils";
+// import CategoriesLists from "@/components/CategoriesLists";
 
-describe("CategoriesLists.vue", () => {
-    // Props
-    it("renders props.tasks when passed", () => {});
+// describe("CategoriesLists.vue", () => {
+//   // Props
+//   it("renders props.tasks when passed", () => {});
 
-    it("renders props.importantTasks when passed", () => {});
+//   it("renders props.importantTasks when passed", () => {});
 
-    it("renders props.todayTasks when passed", () => {});
+//   it("renders props.todayTasks when passed", () => {});
 
-    // Button Important
+//   // Button Important
 
-    it("important button is calling function displayImportantTasks", () => {});
+//   it("important button is calling function displayImportantTasks", () => {});
 
-    it("condition display message", () => {});
+//   it("condition display message", () => {});
 
-    it("loop displaying list of importantTasks", () => {});
+//   it("loop displaying list of importantTasks", () => {});
 
-    // Button Today
+//   // Button Today
 
-    it("important button is calling function displayTodayTasks", () => {});
+//   it("important button is calling function displayTodayTasks", () => {});
 
-    it("condition display message", () => {});
+//   it("condition display message", () => {});
 
-    it("loop displaying list of todayTasks", () => {});
+//   it("loop displaying list of todayTasks", () => {});
 
-    // Import Component
+//   // Import Component
 
-    it("import component TaskItem working", () => {});
+//   it("import component TaskItem working", () => {});
 
-    // Listeners
+//   // Listeners
 
-    it("listeners receiving emit", () => {});
+//   it("listeners receiving emit", () => {});
 
-    // Emit
+//   // Emit
 
-    it("emit an addImportant event", () => {});
+//   it("emit an addImportant event", () => {});
 
-    it("emit an addToday event", () => {});
+//   it("emit an addToday event", () => {});
 
-    it("emit task id event", () => {});
-});
+//   it("emit task id event", () => {});
+// });
