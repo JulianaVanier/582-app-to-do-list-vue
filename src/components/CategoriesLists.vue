@@ -1,6 +1,11 @@
 <template>
   <div>
     <ul>
+      <li>
+        <button v-for="task in tasks" :key="task.id">
+          {{ task.labelImportant === true ? "Important" : "" }}
+        </button>
+      </li>
       <li v-for="list in lists" :key="list.id">
         <button data testid="buttonList" @click="showTasksOfList(list.id)">
           {{ list.name }}
@@ -8,9 +13,6 @@
         </button>
       </li>
     </ul>
-
-    <!-- <button data testid="buttonList" @click="showTasksOfList">TEST</button> -->
-
     <ListOfTasks
       :tasks="tasks"
       @deleteList="deleteList"
