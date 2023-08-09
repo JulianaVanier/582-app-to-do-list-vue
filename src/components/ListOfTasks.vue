@@ -9,8 +9,6 @@
     @deleteThisTask="deleteThisTask"
   >
   </TaskItem>
-
-  <button data testid="deleteList" @click="deleteList">Delete List</button>
 </template>
 
 <script>
@@ -39,9 +37,6 @@ export default {
     },
     deleteThisTask(id) {
       this.$emit("deleteThisTask", id);
-    },
-    deleteList(id) {
-      this.$emit("deleteList", id);
     },
   },
 };

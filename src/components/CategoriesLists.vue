@@ -12,13 +12,14 @@
     <h1>{{ lists }}</h1>
   </li> -->
   <!-- <h1>{{ showListCategories }}</h1> -->
-
   <div>
     <ul>
       <li v-for="list in lists" :key="list.id">
         {{ lists.name }}
       </li>
     </ul>
+    <!-- <h3 v-bind="lists">{{ lists.name }}</h3> -->
+
     <ListOfTasks
       :tasks="tasks"
       @deleteList="deleteList"
@@ -26,6 +27,8 @@
       @deleteThisTask="deleteThisTask"
     ></ListOfTasks>
   </div>
+
+  <button data testid="deleteList" @click="deleteList">Delete List</button>
 </template>
 
 <script>
@@ -39,7 +42,7 @@ export default {
       required: true,
     },
     lists: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
