@@ -1,26 +1,8 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <!-- <CategoriesLists></CategoriesLists> -->
-
-  <!-- <TaskItem
-    v-for="task in tasks"
-    :key="task.id"
-    :tasks="task"
-    :title="task.listName"
-    @addImportant="executeImportant"
-    @deleteTask="executedeleteTask"
-  >
-  </TaskItem> -->
-  <!-- <ListOfTasks
-    :tasks="tasks"
-    @deleteList="deleteList"
-    @addLabelImportant="addLabelImportant"
-    @deleteThisTask="deleteThisTask"
-  ></ListOfTasks> -->
   <CategoriesLists
     :lists="lists"
     :tasks="tasks"
+    @tasksOfList="tasksOfList"
     @deleteList="deleteList"
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
@@ -28,10 +10,6 @@
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
-// import CategoriesLists from "./components/CategoriesLists.vue";
-// import TaskItem from "./components/TaskItem.vue";
-// import ListOfTasks from "./components/ListOfTasks.vue";
 import CategoriesLists from "./components/CategoriesLists.vue";
 
 export default {
@@ -111,10 +89,6 @@ export default {
     };
   },
   components: {
-    // HelloWorld,
-    // CategoriesLists,
-    // TaskItem,
-    // ListOfTasks,
     CategoriesLists,
   },
   methods: {
@@ -142,6 +116,15 @@ export default {
       for (let i = 0; i < this.lists.length; i++) {
         if (this.lists[i].id === id) {
           this.lists.splice(i, 1);
+        }
+      }
+    },
+    tasksOfList(id) {
+      console.log("showTasksOfList");
+      console.log(id);
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].listId === id) {
+          // console.log(this.tasks[i].listId);
         }
       }
     },
