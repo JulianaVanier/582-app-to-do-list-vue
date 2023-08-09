@@ -11,14 +11,15 @@
   <!-- <li v-for="list in lists" :key="list.id">
     <h1>{{ lists }}</h1>
   </li> -->
-  <!-- <h1>{{ showListCategories }}</h1> -->
+
   <div>
     <ul>
       <li v-for="list in lists" :key="list.id">
-        {{ lists.name }}
+        {{ list.name }}
       </li>
     </ul>
     <!-- <h3 v-bind="lists">{{ lists.name }}</h3> -->
+    <!-- <h1>{{ showListCategories }}</h1> -->
 
     <ListOfTasks
       :tasks="tasks"

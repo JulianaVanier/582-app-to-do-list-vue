@@ -19,6 +19,7 @@
     @deleteThisTask="deleteThisTask"
   ></ListOfTasks> -->
   <CategoriesLists
+    :lists="lists"
     :tasks="tasks"
     @deleteList="deleteList"
     @addLabelImportant="addLabelImportant"
