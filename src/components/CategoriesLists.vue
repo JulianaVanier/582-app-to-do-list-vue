@@ -1,25 +1,15 @@
 <template>
-  <!-- <div>
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <h1>{{ tasks[0].listName }}</h1>
-      </li>
-    </ul>
-  </div> -->
-  <!-- <h1>{{ tasks[0].listName }}</h1> -->
-  <!-- <div v-for="list in lists" :key="list.id"></div> -->
-  <!-- <li v-for="list in lists" :key="list.id">
-    <h1>{{ lists }}</h1>
-  </li> -->
-
   <div>
     <ul>
       <li v-for="list in lists" :key="list.id">
-        {{ list.name }}
+        <button data testid="buttonList" @click="showTasksOfList(list.id)">
+          {{ list.name }}
+          {{ list.id }}
+        </button>
       </li>
     </ul>
-    <!-- <h3 v-bind="lists">{{ lists.name }}</h3> -->
-    <!-- <h1>{{ showListCategories }}</h1> -->
+
+    <!-- <button data testid="buttonList" @click="showTasksOfList">TEST</button> -->
 
     <ListOfTasks
       :tasks="tasks"
@@ -60,6 +50,14 @@ export default {
     },
     deleteList(id) {
       this.$emit("deleteList", id);
+    },
+    showTasksOfList(id) {
+      // console.log("test-buttonlist");
+      // this.$emit("showTasksOfList", id);
+      // console.log(id);
+      this.$emit("tasksOfList", id);
+      // this.$emit("tasksOfList");
+      // alert(`${this.list.id}`);
     },
   },
 };
