@@ -2,20 +2,14 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <CategoriesLists></CategoriesLists> -->
-  <TaskItem
-    v-for="task in tasks"
-    :key="task.id"
-    :tasks="task"
-    @addImportant="addImportant"
-    @deleteTask="deleteTask"
-  >
-  </TaskItem>
+  <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
 // import CategoriesLists from "./components/CategoriesLists.vue";
-import TaskItem from "./components/TaskItem.vue";
+// import TaskItem from "./components/TaskItem.vue";
+import ListOfTasks from "./components/ListOfTasks.vue";
 
 export default {
   name: "App",
@@ -96,7 +90,8 @@ export default {
   components: {
     // HelloWorld,
     // CategoriesLists,
-    TaskItem,
+    // TaskItem,
+    ListOfTasks,
   },
   methods: {
     addImportant(id) {
@@ -112,6 +107,13 @@ export default {
         if (this.tasks[i].id === id) {
           // https://bytearcher.com/articles/how-to-delete-value-from-array/
           this.tasks.splice(i, 1);
+        }
+      }
+    },
+    deleteList(id) {
+      for (let i = 0; i < this.lists.length; i++) {
+        if (this.lists[i].id === id) {
+          this.lists.splice(i, 1);
         }
       }
     },
