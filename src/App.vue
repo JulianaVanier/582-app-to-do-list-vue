@@ -2,12 +2,27 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <CategoriesLists></CategoriesLists> -->
-  <!-- <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks> -->
+
+  <!-- <TaskItem
+    v-for="task in tasks"
+    :key="task.id"
+    :tasks="task"
+    :title="task.listName"
+    @addImportant="executeImportant"
+    @deleteTask="executedeleteTask"
+  >
+  </TaskItem> -->
+  <!-- <ListOfTasks
+    :tasks="tasks"
+    @deleteList="deleteList"
+    @addLabelImportant="addLabelImportant"
+    @deleteThisTask="deleteThisTask"
+  ></ListOfTasks> -->
   <CategoriesLists
     :tasks="tasks"
     @deleteList="deleteList"
-    @addImportant="addImportant"
-    @deleteTask="deleteTask"
+    @addLabelImportant="addLabelImportant"
+    @deleteThisTask="deleteThisTask"
   ></CategoriesLists>
 </template>
 
@@ -102,15 +117,19 @@ export default {
     CategoriesLists,
   },
   methods: {
-    addImportant(id) {
+    addLabelImportant(id) {
+      console.log("testimportant3");
       for (let i = 0; i < this.tasks.length; i++) {
+        // console.log("testimportant4");
+        // console.log(this.tasks.length);
+        // console.log(id);
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = true;
           console.log(this.tasks[i].labelImportant);
         }
       }
     },
-    deleteTask(id) {
+    deleteThisTask(id) {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           // https://bytearcher.com/articles/how-to-delete-value-from-array/

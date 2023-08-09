@@ -22,8 +22,8 @@
     <ListOfTasks
       :tasks="tasks"
       @deleteList="deleteList"
-      @addImportant="addImportant"
-      @deleteTask="deleteTask"
+      @addLabelImportant="addLabelImportant"
+      @deleteThisTask="deleteThisTask"
     ></ListOfTasks>
   </div>
 </template>
@@ -48,25 +48,16 @@ export default {
     ListOfTasks,
   },
   methods: {
-    addImportant() {
-      this.$emit("addImportant", this.tasks.id);
+    addLabelImportant(id) {
+      this.$emit("addLabelImportant", id);
     },
-    deleteTask() {
-      this.$emit("deleteTask", this.tasks.id);
+    deleteThisTask(id) {
+      this.$emit("deleteThisTask", id);
     },
-    deleteList() {
-      this.$emit("deleteList", this.tasks.id);
+    deleteList(id) {
+      this.$emit("deleteList", id);
     },
   },
-
-  // computed: {
-  //   showListCategories() {
-  //     // return this.lists.filter((list) => list.id === this.tasks.listId);
-  //     for (let i = 0; i < this.lists.length; i++) {
-  //       return this.lists[i].name;
-  //     }
-  //   },
-  // },
 };
 </script>
 

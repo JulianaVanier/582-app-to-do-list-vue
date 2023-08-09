@@ -26,10 +26,12 @@ export default {
   },
   methods: {
     addImportant() {
-      this.$emit("addImportant", this.tasks.id);
+      console.log("testimportant");
+      this.$emit("addLabelImportant", this.tasks.id);
     },
     deleteTask() {
-      this.$emit("deleteTask", this.tasks.id);
+      console.log("testdelete");
+      this.$emit("deleteThisTask", this.tasks.id);
     },
   },
 };

@@ -5,8 +5,8 @@
     :key="task.id"
     :tasks="task"
     :title="task.listName"
-    @addImportant="addImportant"
-    @deleteTask="deleteTask"
+    @addLabelImportant="addLabelImportant"
+    @deleteThisTask="deleteThisTask"
   >
   </TaskItem>
 
@@ -32,14 +32,16 @@ export default {
     TaskItem,
   },
   methods: {
-    addImportant() {
-      this.$emit("addImportant", this.tasks.id);
+    addLabelImportant(id) {
+      console.log("testimportant2");
+      // console.log(id);
+      this.$emit("addLabelImportant", id);
     },
-    deleteTask() {
-      this.$emit("deleteTask", this.tasks.id);
+    deleteThisTask(id) {
+      this.$emit("deleteThisTask", id);
     },
-    deleteList() {
-      this.$emit("deleteList", this.tasks.id);
+    deleteList(id) {
+      this.$emit("deleteList", id);
     },
   },
 };
