@@ -3,7 +3,12 @@
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <CategoriesLists></CategoriesLists> -->
   <!-- <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks> -->
-  <CategoriesLists :tasks="tasks" @deleteList="deleteList"></CategoriesLists>
+  <CategoriesLists
+    :tasks="tasks"
+    @deleteList="deleteList"
+    @addImportant="addImportant"
+    @deleteTask="deleteTask"
+  ></CategoriesLists>
 </template>
 
 <script>

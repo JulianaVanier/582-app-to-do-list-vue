@@ -19,9 +19,13 @@
         {{ lists.name }}
       </li>
     </ul>
-    <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks>
+    <ListOfTasks
+      :tasks="tasks"
+      @deleteList="deleteList"
+      @addImportant="addImportant"
+      @deleteTask="deleteTask"
+    ></ListOfTasks>
   </div>
-  <!-- <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks> -->
 </template>
 
 <script>
@@ -42,6 +46,17 @@ export default {
 
   components: {
     ListOfTasks,
+  },
+  methods: {
+    addImportant() {
+      this.$emit("addImportant", this.tasks.id);
+    },
+    deleteTask() {
+      this.$emit("deleteTask", this.tasks.id);
+    },
+    deleteList() {
+      this.$emit("deleteList", this.tasks.id);
+    },
   },
 
   // computed: {
