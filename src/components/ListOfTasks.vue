@@ -1,13 +1,16 @@
 <template>
+  <!-- <h1>{{ tasks[0].listName }}</h1> -->
   <TaskItem
     v-for="task in tasks"
     :key="task.id"
     :tasks="task"
+    :title="task.listName"
     @addImportant="addImportant"
     @deleteTask="deleteTask"
   >
   </TaskItem>
-  <!-- <button data testid="deleteList" @click="deleteList">Delete List</button> -->
+
+  <button data testid="deleteList" @click="deleteList">Delete List</button>
 </template>
 
 <script>
@@ -17,6 +20,10 @@ export default {
   name: "ListOfTasks",
   props: {
     tasks: {
+      type: Object,
+      required: true,
+    },
+    lists: {
       type: Object,
       required: true,
     },
