@@ -1,12 +1,18 @@
-<!-- <template>
-  <ListOfTasks></ListOfTasks>
+<template>
+  <ListOfTasks :tasks="tasks"></ListOfTasks>
 </template>
 
 <script>
 import ListOfTasks from "./ListOfTasks.vue";
 
 export default {
-  name: "ListOfLists",
+  name: "CategoriesLists",
+  props: {
+    tasks: {
+      type: Object,
+      required: true,
+    },
+  },
 
   components: {
     ListOfTasks,
@@ -14,4 +20,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style> -->
+<style scoped lang="scss"></style>

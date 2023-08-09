@@ -2,14 +2,16 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <CategoriesLists></CategoriesLists> -->
-  <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks>
+  <!-- <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks> -->
+  <CategoriesLists :tasks="tasks" @deleteList="deleteList"></CategoriesLists>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
 // import CategoriesLists from "./components/CategoriesLists.vue";
 // import TaskItem from "./components/TaskItem.vue";
-import ListOfTasks from "./components/ListOfTasks.vue";
+// import ListOfTasks from "./components/ListOfTasks.vue";
+import CategoriesLists from "./components/CategoriesLists.vue";
 
 export default {
   name: "App",
@@ -91,7 +93,8 @@ export default {
     // HelloWorld,
     // CategoriesLists,
     // TaskItem,
-    ListOfTasks,
+    // ListOfTasks,
+    CategoriesLists,
   },
   methods: {
     addImportant(id) {

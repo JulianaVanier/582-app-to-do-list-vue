@@ -48,5 +48,4 @@ describe("TaskItem.vue", () => {
     wrapper.vm.deleteTask();
     expect(wrapper.emitted().deleteTask).toBeTruthy();
   });
-  //   it("emit task id event", () => {});
 });
