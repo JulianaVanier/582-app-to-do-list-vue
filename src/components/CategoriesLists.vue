@@ -1,11 +1,6 @@
 <template>
   <div>
     <ul>
-      <li>
-        <button v-for="task in tasks" :key="task.id">
-          {{ task.labelImportant === true ? "Important" : "" }}
-        </button>
-      </li>
       <li v-for="list in lists" :key="list.id">
         <button data testid="buttonList" @click="showTasksOfList(list.id)">
           {{ list.name }}
@@ -13,19 +8,19 @@
         </button>
       </li>
     </ul>
-    <ListOfTasks
+    <!-- <ListOfTasks
       :tasks="tasks"
       @deleteList="deleteList"
       @addLabelImportant="addLabelImportant"
       @deleteThisTask="deleteThisTask"
-    ></ListOfTasks>
+    ></ListOfTasks> -->
   </div>
 
   <button data testid="deleteList" @click="deleteList">Delete List</button>
 </template>
 
 <script>
-import ListOfTasks from "./ListOfTasks.vue";
+// import ListOfTasks from "./ListOfTasks.vue";
 
 export default {
   name: "CategoriesLists",
@@ -41,7 +36,7 @@ export default {
   },
 
   components: {
-    ListOfTasks,
+    // ListOfTasks,
   },
   methods: {
     addLabelImportant(id) {

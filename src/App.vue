@@ -1,16 +1,30 @@
 <template>
-  <CategoriesLists
+  <button v-for="task in tasks" :key="task.id">
+    {{ task.labelImportant === true ? "Important" : "" }}
+  </button>
+
+  <CategoriesLists :lists="lists"></CategoriesLists>
+
+  <!-- <CategoriesLists
     :lists="lists"
     :tasks="tasks"
     @tasksOfList="tasksOfList"
     @deleteList="deleteList"
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
-  ></CategoriesLists>
+  ></CategoriesLists> -->
+
+  <ListOfTasks
+    :tasks="tasks"
+    @deleteList="deleteList"
+    @addLabelImportant="addLabelImportant"
+    @deleteThisTask="deleteThisTask"
+  ></ListOfTasks>
 </template>
 
 <script>
 import CategoriesLists from "./components/CategoriesLists.vue";
+import ListOfTasks from "./components/ListOfTasks.vue";
 
 export default {
   name: "App",
@@ -90,6 +104,7 @@ export default {
   },
   components: {
     CategoriesLists,
+    ListOfTasks,
   },
   methods: {
     addLabelImportant(id) {
@@ -120,11 +135,9 @@ export default {
       }
     },
     tasksOfList(id) {
-      console.log("showTasksOfList");
-      console.log(id);
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].listId === id) {
-          // console.log(this.tasks[i].listId);
+          console.log(this.tasks[i].listId);
         }
       }
     },
