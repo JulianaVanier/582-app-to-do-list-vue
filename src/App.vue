@@ -1,16 +1,15 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <!-- <CategoriesLists></CategoriesLists> -->
-  <!-- <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks> -->
-  <CategoriesLists :tasks="tasks" @deleteList="deleteList"></CategoriesLists>
+  <CategoriesLists
+    :lists="lists"
+    :tasks="tasks"
+    @tasksOfList="tasksOfList"
+    @deleteList="deleteList"
+    @addLabelImportant="addLabelImportant"
+    @deleteThisTask="deleteThisTask"
+  ></CategoriesLists>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
-// import CategoriesLists from "./components/CategoriesLists.vue";
-// import TaskItem from "./components/TaskItem.vue";
-// import ListOfTasks from "./components/ListOfTasks.vue";
 import CategoriesLists from "./components/CategoriesLists.vue";
 
 export default {
@@ -90,22 +89,22 @@ export default {
     };
   },
   components: {
-    // HelloWorld,
-    // CategoriesLists,
-    // TaskItem,
-    // ListOfTasks,
     CategoriesLists,
   },
   methods: {
-    addImportant(id) {
+    addLabelImportant(id) {
+      console.log("testimportant3");
       for (let i = 0; i < this.tasks.length; i++) {
+        // console.log("testimportant4");
+        // console.log(this.tasks.length);
+        // console.log(id);
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = true;
           console.log(this.tasks[i].labelImportant);
         }
       }
     },
-    deleteTask(id) {
+    deleteThisTask(id) {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           // https://bytearcher.com/articles/how-to-delete-value-from-array/
@@ -117,6 +116,15 @@ export default {
       for (let i = 0; i < this.lists.length; i++) {
         if (this.lists[i].id === id) {
           this.lists.splice(i, 1);
+        }
+      }
+    },
+    tasksOfList(id) {
+      console.log("showTasksOfList");
+      console.log(id);
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].listId === id) {
+          // console.log(this.tasks[i].listId);
         }
       }
     },

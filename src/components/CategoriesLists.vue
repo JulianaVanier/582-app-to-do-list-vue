@@ -1,27 +1,27 @@
 <template>
-  <!-- <div>
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <h1>{{ tasks[0].listName }}</h1>
-      </li>
-    </ul>
-  </div> -->
-  <!-- <h1>{{ tasks[0].listName }}</h1> -->
-  <!-- <div v-for="list in lists" :key="list.id"></div> -->
-  <!-- <li v-for="list in lists" :key="list.id">
-    <h1>{{ lists }}</h1>
-  </li> -->
-  <!-- <h1>{{ showListCategories }}</h1> -->
-
   <div>
     <ul>
+      <li>
+        <button v-for="task in tasks" :key="task.id">
+          {{ task.labelImportant === true ? "Important" : "" }}
+        </button>
+      </li>
       <li v-for="list in lists" :key="list.id">
-        {{ lists.name }}
+        <button data testid="buttonList" @click="showTasksOfList(list.id)">
+          {{ list.name }}
+          {{ list.id }}
+        </button>
       </li>
     </ul>
-    <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks>
+    <ListOfTasks
+      :tasks="tasks"
+      @deleteList="deleteList"
+      @addLabelImportant="addLabelImportant"
+      @deleteThisTask="deleteThisTask"
+    ></ListOfTasks>
   </div>
-  <!-- <ListOfTasks :tasks="tasks" @deleteList="deleteList"></ListOfTasks> -->
+
+  <button data testid="deleteList" @click="deleteList">Delete List</button>
 </template>
 
 <script>
@@ -35,7 +35,7 @@ export default {
       required: true,
     },
     lists: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
@@ -43,15 +43,25 @@ export default {
   components: {
     ListOfTasks,
   },
-
-  // computed: {
-  //   showListCategories() {
-  //     // return this.lists.filter((list) => list.id === this.tasks.listId);
-  //     for (let i = 0; i < this.lists.length; i++) {
-  //       return this.lists[i].name;
-  //     }
-  //   },
-  // },
+  methods: {
+    addLabelImportant(id) {
+      this.$emit("addLabelImportant", id);
+    },
+    deleteThisTask(id) {
+      this.$emit("deleteThisTask", id);
+    },
+    deleteList(id) {
+      this.$emit("deleteList", id);
+    },
+    showTasksOfList(id) {
+      // console.log("test-buttonlist");
+      // this.$emit("showTasksOfList", id);
+      // console.log(id);
+      this.$emit("tasksOfList", id);
+      // this.$emit("tasksOfList");
+      // alert(`${this.list.id}`);
+    },
+  },
 };
 </script>
 
