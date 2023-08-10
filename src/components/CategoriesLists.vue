@@ -1,13 +1,13 @@
 <template>
   <div>
-    <ul>
-      <li v-for="list in lists" :key="list.id">
-        <button data testid="buttonList" @click="showTasksOfList(list.id)">
-          {{ list.name }}
-          {{ list.id }}
-        </button>
-      </li>
-    </ul>
+    <div><button @click="showImportantTasks">Important</button></div>
+    <div v-for="list in lists" :key="list.id">
+      <button data testid="buttonList" @click="showTasksOfList(list.id)">
+        {{ list.name }}
+        {{ list.id }}
+      </button>
+    </div>
+
     <!-- <ListOfTasks
       :tasks="tasks"
       @deleteList="deleteList"
@@ -60,6 +60,9 @@ export default {
     //   this.$emit("importantList", id);
     //   console.log(id);
     // },
+    showImportantTasks() {
+      this.$emit("importantList");
+    },
   },
 };
 </script>

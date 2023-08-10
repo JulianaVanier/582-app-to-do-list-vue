@@ -7,6 +7,7 @@
     :lists="lists"
     :tasks="tasks"
     @tasksOfList="tasksOfList"
+    @importantList="importantList"
   ></CategoriesLists>
 
   <ListOfTasks
@@ -27,6 +28,7 @@ export default {
   data() {
     return {
       idListDisplay: 0,
+      idListImportant: [],
       lists: [
         {
           id: 1,
@@ -136,6 +138,15 @@ export default {
       //   if (this.tasks[i].listId === id) {
       //     // console.log(this.tasks[i].listId);
       //     this.id = id;
+      //   }
+      // }
+    },
+    importantList() {
+      console.log("agora");
+      // for (let i = 0; i < this.tasks.length; i++) {
+      //   if (this.tasks[i].labelImportant === true) {
+      //     // console.log(this.tasks[i].listId);
+      //     idListImportant.push(this.tasks[i]);
       //   }
       // }
     },
