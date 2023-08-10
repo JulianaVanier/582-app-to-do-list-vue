@@ -3,7 +3,11 @@
     {{ task.labelImportant === true ? "Important" : "" }}
   </button> -->
 
-  <CategoriesLists :lists="lists" @tasksOfList="tasksOfList"></CategoriesLists>
+  <CategoriesLists
+    :lists="lists"
+    :tasks="tasks"
+    @tasksOfList="tasksOfList"
+  ></CategoriesLists>
 
   <ListOfTasks
     :tasks="tasks"

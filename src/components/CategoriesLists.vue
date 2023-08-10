@@ -56,6 +56,10 @@ export default {
       // this.$emit("tasksOfList");
       // alert(`${this.list.id}`);
     },
+    // showImportantTask(id) {
+    //   this.$emit("importantList", id);
+    //   console.log(id);
+    // },
   },
 };
 </script>
