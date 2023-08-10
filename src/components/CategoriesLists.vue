@@ -16,7 +16,7 @@
     ></ListOfTasks> -->
   </div>
 
-  <button data testid="deleteList" @click="deleteList">Delete List</button>
+  <!-- <button data testid="deleteList" @click="deleteList">Delete List</button> -->
 </template>
 
 <script>

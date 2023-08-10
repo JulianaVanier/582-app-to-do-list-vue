@@ -1,18 +1,9 @@
 <template>
-  <button v-for="task in tasks" :key="task.id">
+  <!-- <button v-for="task in tasks" :key="task.id">
     {{ task.labelImportant === true ? "Important" : "" }}
-  </button>
+  </button> -->
 
   <CategoriesLists :lists="lists" @tasksOfList="tasksOfList"></CategoriesLists>
-
-  <!-- <CategoriesLists
-    :lists="lists"
-    :tasks="tasks"
-    @tasksOfList="tasksOfList"
-    @deleteList="deleteList"
-    @addLabelImportant="addLabelImportant"
-    @deleteThisTask="deleteThisTask"
-  ></CategoriesLists> -->
 
   <ListOfTasks
     :tasks="tasks"
@@ -31,7 +22,7 @@ export default {
   name: "App",
   data() {
     return {
-      idListDisplay: 2,
+      idListDisplay: 0,
       lists: [
         {
           id: 1,
@@ -110,7 +101,7 @@ export default {
   },
   methods: {
     addLabelImportant(id) {
-      console.log("testimportant3");
+      // console.log("testimportant3");
       for (let i = 0; i < this.tasks.length; i++) {
         // console.log("testimportant4");
         // console.log(this.tasks.length);
@@ -124,7 +115,6 @@ export default {
     deleteThisTask(id) {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
-          // https://bytearcher.com/articles/how-to-delete-value-from-array/
           this.tasks.splice(i, 1);
         }
       }
@@ -157,5 +147,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+ul {
+  list-style-type: none;
 }
 </style>

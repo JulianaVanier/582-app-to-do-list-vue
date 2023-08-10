@@ -26,11 +26,11 @@ export default {
   },
   methods: {
     addImportant() {
-      console.log("testimportant");
+      // console.log("testimportant");
       this.$emit("addLabelImportant", this.tasks.id);
     },
     deleteTask() {
-      console.log("testdelete");
+      // console.log("testdelete");
       this.$emit("deleteThisTask", this.tasks.id);
     },
   },

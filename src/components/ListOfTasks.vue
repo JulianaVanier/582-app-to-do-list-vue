@@ -1,5 +1,4 @@
 <template>
-  <h1>{{ idListDisplay }}</h1>
   <TaskItem
     v-for="task in filterList"
     :key="task.id"
@@ -35,7 +34,7 @@ export default {
   },
   methods: {
     addLabelImportant(id) {
-      console.log("testimportant2");
+      // console.log("testimportant2");
       // console.log(id);
       this.$emit("addLabelImportant", id);
     },
@@ -52,7 +51,6 @@ export default {
         }
       }
       return list;
-      // return this.tasks.filter((task) => task.listId === this.idListDisplay);
     },
   },
 };
