@@ -8,6 +8,10 @@
     @deleteThisTask="deleteThisTask"
   >
   </TaskItem>
+  <!-- {{ idListImportant }}
+  {{ idListDisplay }} -->
+  <!-- <TaskItem v-for="task in filterImportant" :key="task.id" :tasks="task">
+  </TaskItem> -->
 </template>
 
 <script>
@@ -28,6 +32,10 @@ export default {
       type: Number,
       required: true,
     },
+    idListImportant: {
+      type: Boolean,
+      required: true,
+    },
   },
   components: {
     TaskItem,
@@ -45,13 +53,34 @@ export default {
   computed: {
     filterList() {
       var list = [];
-      for (let i = 0; i < this.tasks.length; i++) {
-        if (this.tasks[i].listId === this.idListDisplay) {
-          list.push(this.tasks[i]);
+      console.log("here", this.idListImportant);
+      if (this.idListImportant === 1) {
+        for (let i = 0; i < this.tasks.length; i++) {
+          if (this.tasks[i].labelImportant === true) {
+            list.push(this.tasks[i]);
+          }
+        }
+      } else {
+        for (let i = 0; i < this.tasks.length; i++) {
+          if (this.tasks[i].listId === this.idListDisplay) {
+            list.push(this.tasks[i]);
+            // console.log(list);
+          }
         }
       }
       return list;
     },
+    // filterImportant() {
+    //   var listImp = [];
+    //   if (this.idListImportant === true) {
+    //     for (let i = 0; i < this.tasks.length; i++) {
+    //       if (this.tasks[i].labelImportant === true) {
+    //         listImp.push(this.tasks[i]);
+    //       }
+    //     }
+    //   }
+    //   return listImp;
+    // },
   },
 };
 </script>

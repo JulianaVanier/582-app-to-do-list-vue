@@ -2,7 +2,6 @@
   <!-- <button v-for="task in tasks" :key="task.id">
     {{ task.labelImportant === true ? "Important" : "" }}
   </button> -->
-
   <CategoriesLists
     :lists="lists"
     :tasks="tasks"
@@ -28,7 +27,7 @@ export default {
   data() {
     return {
       idListDisplay: 0,
-      idListImportant: [],
+      idListImportant: 0,
       lists: [
         {
           id: 1,
@@ -87,7 +86,7 @@ export default {
           responsability: "Person 5",
           listId: 3,
           listName: "List 3",
-          labelImportant: false,
+          labelImportant: true,
         },
         {
           id: 6,
@@ -96,7 +95,7 @@ export default {
           responsability: "Person 6",
           listId: 3,
           listName: "List 3",
-          labelImportant: false,
+          labelImportant: true,
         },
       ],
     };
@@ -142,7 +141,8 @@ export default {
       // }
     },
     importantList() {
-      console.log("agora");
+      this.idListImportant = true;
+      console.log("look", this.idListImportant);
       // for (let i = 0; i < this.tasks.length; i++) {
       //   if (this.tasks[i].labelImportant === true) {
       //     // console.log(this.tasks[i].listId);
@@ -162,8 +162,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-ul {
-  list-style-type: none;
 }
 </style>
