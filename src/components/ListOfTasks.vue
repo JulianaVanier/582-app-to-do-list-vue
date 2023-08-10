@@ -1,7 +1,7 @@
 <template>
-  <!-- <h1>{{ tasks[0].listName }}</h1> -->
+  <h1>{{ idListDisplay }}</h1>
   <TaskItem
-    v-for="task in tasks"
+    v-for="task in filterList"
     :key="task.id"
     :tasks="task"
     :title="task.listName"
@@ -25,6 +25,10 @@ export default {
       type: Object,
       required: true,
     },
+    idListDisplay: {
+      type: Number,
+      required: true,
+    },
   },
   components: {
     TaskItem,
@@ -37,6 +41,18 @@ export default {
     },
     deleteThisTask(id) {
       this.$emit("deleteThisTask", id);
+    },
+  },
+  computed: {
+    filterList() {
+      var list = [];
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].listId === this.idListDisplay) {
+          list.push(this.tasks[i]);
+        }
+      }
+      return list;
+      // return this.tasks.filter((task) => task.listId === this.idListDisplay);
     },
   },
 };

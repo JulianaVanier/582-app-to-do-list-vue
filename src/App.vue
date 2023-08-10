@@ -3,7 +3,7 @@
     {{ task.labelImportant === true ? "Important" : "" }}
   </button>
 
-  <CategoriesLists :lists="lists"></CategoriesLists>
+  <CategoriesLists :lists="lists" @tasksOfList="tasksOfList"></CategoriesLists>
 
   <!-- <CategoriesLists
     :lists="lists"
@@ -16,6 +16,7 @@
 
   <ListOfTasks
     :tasks="tasks"
+    :idListDisplay="idListDisplay"
     @deleteList="deleteList"
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
@@ -30,6 +31,7 @@ export default {
   name: "App",
   data() {
     return {
+      idListDisplay: 2,
       lists: [
         {
           id: 1,
@@ -135,11 +137,13 @@ export default {
       }
     },
     tasksOfList(id) {
-      for (let i = 0; i < this.tasks.length; i++) {
-        if (this.tasks[i].listId === id) {
-          console.log(this.tasks[i].listId);
-        }
-      }
+      this.idListDisplay = id;
+      // for (let i = 0; i < this.tasks.length; i++) {
+      //   if (this.tasks[i].listId === id) {
+      //     // console.log(this.tasks[i].listId);
+      //     this.id = id;
+      //   }
+      // }
     },
   },
 };
