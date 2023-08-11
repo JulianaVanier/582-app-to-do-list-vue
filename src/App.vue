@@ -11,6 +11,7 @@
           :tasks="tasks"
           @tasksOfList="tasksOfList"
           @importantList="importantList"
+          @deleteList="deleteList"
         ></CategoriesLists>
       </div>
       <div class="box-body-right">
@@ -20,7 +21,6 @@
           :idListDisplay="idListDisplay"
           :idListImportant="idListImportant"
           :nameListDisplay="nameListDisplay"
-          @deleteList="deleteList"
           @addLabelImportant="addLabelImportant"
           @deleteThisTask="deleteThisTask"
         ></ListOfTasks>
@@ -179,6 +179,13 @@ export default {
         }
       }
     },
+    removeLabelImportant(id) {
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].id === id) {
+          this.tasks[i].labelImportant = false;
+        }
+      }
+    },
     deleteThisTask(id) {
       if (confirm("Are you sure you want to delete this task?") != true) return;
       for (let i = 0; i < this.tasks.length; i++) {
@@ -314,6 +321,11 @@ export default {
     }
   }
   // STYLE TASKITEM
+  .contentTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .box-task {
     display: flex;
     justify-content: space-around;

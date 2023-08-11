@@ -4,14 +4,23 @@
     <div class="btn-list" @click="showImportantTasks">
       <img src="/img/icon-star.png" alt="" />Important
     </div>
-    <div v-for="list in lists" :key="list.id">
+    <div v-for="list in lists" :key="list.id" class="contentTask">
       <div
         class="btn-list"
         data
         testid="buttonList"
         @click="showTasksOfList(list.id)"
       >
-        <img src="/img/icon-list.png" alt="" />{{ list.name }}
+        <img src="/img/icon-list.png" alt="icon list" />{{ list.name }}
+      </div>
+      <div>
+        <img
+          class="imgDelete"
+          src="/img/delete.png"
+          alt="icon delete"
+          style="margin-left: auto"
+          @click="deleteList(list.id)"
+        />
       </div>
     </div>
 
@@ -20,7 +29,7 @@
       @deleteList="deleteList"
       @addLabelImportant="addLabelImportant"
       @deleteThisTask="deleteThisTask"
-    ></ListOfTasks> -->
+      ></ListOfTasks> -->
   </div>
 
   <!-- <button data testid="deleteList" @click="deleteList">Delete List</button> -->
@@ -54,6 +63,7 @@ export default {
     },
     deleteList(id) {
       this.$emit("deleteList", id);
+      console.log("btndellis", id);
     },
     showTasksOfList(id) {
       // console.log("test-buttonlist");

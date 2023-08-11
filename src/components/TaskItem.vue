@@ -14,9 +14,19 @@
       >
       <!-- <p>Date: {{ tasks.date }}</p>
     <p>Responsability: {{ tasks.responsability }}</p> -->
-      <div data testid="addImportant" @click="addImportant">
-        <img v-if="!isAddedImp" src="/img/icon-star.png" alt="icon star" />
-        <img v-else-if="isAddedImp" src="/img/favourite.png" alt="icon star" />
+      <div data testid="addImportant">
+        <img
+          v-if="!isAddedImp"
+          src="/img/icon-star.png"
+          alt="icon star"
+          @click="addImportant"
+        />
+        <img
+          v-else
+          src="/img/favourite.png"
+          alt="icon star"
+          @click="removeImportant"
+        />
       </div>
       <div data testid="deleteTask" @click="deleteTask">
         <img src="/img/delete.png" alt="icon delete" />
@@ -48,16 +58,18 @@ export default {
     addImportant() {
       // console.log("testimportant");
       this.$emit("addLabelImportant", this.tasks.id);
-      this.isAddedImp = true;
+      this.isAddedImp = !this.isAddedImp;
+    },
+    removeImportant() {
+      this.$emit("removeLabelImportant", this.tasks.id);
+      this.isAddedImp = !this.isAddedImp;
     },
     deleteTask() {
       // console.log("testdelete");
       this.$emit("deleteThisTask", this.tasks.id);
     },
     taskCompleted() {
-      console.log("taskcompleted");
       this.done = !this.done;
-      // this.$emit("taskCompleted", this.tasks.id);
     },
   },
 };
