@@ -2,20 +2,28 @@
   <!-- <button v-for="task in tasks" :key="task.id">
     {{ task.labelImportant === true ? "Important" : "" }}
   </button> -->
-  <CategoriesLists
-    :lists="lists"
-    :tasks="tasks"
-    @tasksOfList="tasksOfList"
-    @importantList="importantList"
-  ></CategoriesLists>
-
-  <ListOfTasks
-    :tasks="tasks"
-    :idListDisplay="idListDisplay"
-    @deleteList="deleteList"
-    @addLabelImportant="addLabelImportant"
-    @deleteThisTask="deleteThisTask"
-  ></ListOfTasks>
+  <section class="body-app">
+    <div class="box-body">
+      <div class="box-body-left">
+        <CategoriesLists
+          :lists="lists"
+          :tasks="tasks"
+          @tasksOfList="tasksOfList"
+          @importantList="importantList"
+        ></CategoriesLists>
+      </div>
+      <div class="box-body-right">
+        <ListOfTasks
+          :tasks="tasks"
+          :idListDisplay="idListDisplay"
+          :idListImportant="idListImportant"
+          @deleteList="deleteList"
+          @addLabelImportant="addLabelImportant"
+          @deleteThisTask="deleteThisTask"
+        ></ListOfTasks>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -86,7 +94,7 @@ export default {
           responsability: "Person 5",
           listId: 3,
           listName: "List 3",
-          labelImportant: true,
+          labelImportant: false,
         },
         {
           id: 6,
@@ -95,7 +103,7 @@ export default {
           responsability: "Person 6",
           listId: 3,
           listName: "List 3",
-          labelImportant: true,
+          labelImportant: false,
         },
       ],
     };
@@ -155,12 +163,70 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // text-align: center;
+  // color: #2c3e50;
+  // margin-top: 60px;
+  // background-color: #f1eded;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // background-color: #faf9f8;
+}
+.body-app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .box-body-left {
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid #d5d5d6;
+  }
+  .box-body-right {
+    width: 80%;
+    height: 100%;
+    background-color: #faf9f8;
+  }
+  .box-lists {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+
+    .btn-list {
+      font-family: "Poppins", sans-serif;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 20px;
+      // border-bottom: 1px solid #d5d5d6;
+      cursor: pointer;
+      &:hover {
+        background-color: #f1eded;
+      }
+    }
+  }
 }
 </style>

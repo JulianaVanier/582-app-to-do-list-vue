@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <div><button @click="showImportantTasks">Important</button></div>
+  <div class="box-lists">
+    <div class="btn-list" @click="showImportantTasks">
+      <img src="docs/img/icon-star.png" alt="" />Important
+    </div>
     <div v-for="list in lists" :key="list.id">
-      <button data testid="buttonList" @click="showTasksOfList(list.id)">
-        {{ list.name }}
-        {{ list.id }}
-      </button>
+      <div
+        class="btn-list"
+        data
+        testid="buttonList"
+        @click="showTasksOfList(list.id)"
+      >
+        <img src="docs/img/icon-list.png" alt="" />{{ list.name }}
+      </div>
     </div>
 
     <!-- <ListOfTasks

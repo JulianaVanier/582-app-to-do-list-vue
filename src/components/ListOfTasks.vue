@@ -8,8 +8,8 @@
     @deleteThisTask="deleteThisTask"
   >
   </TaskItem>
-  <!-- {{ idListImportant }}
-  {{ idListDisplay }} -->
+  {{ idListImportant }}
+  <!-- {{ idListDisplay }} -->
   <!-- <TaskItem v-for="task in filterImportant" :key="task.id" :tasks="task">
   </TaskItem> -->
 </template>
@@ -54,7 +54,7 @@ export default {
     filterList() {
       var list = [];
       console.log("here", this.idListImportant);
-      if (this.idListImportant === 1) {
+      if (this.idListImportant === true) {
         for (let i = 0; i < this.tasks.length; i++) {
           if (this.tasks[i].labelImportant === true) {
             list.push(this.tasks[i]);
