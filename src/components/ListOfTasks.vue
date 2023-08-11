@@ -1,4 +1,5 @@
 <template>
+  {{ nameListDisplay }}
   <TaskItem
     v-for="task in filterList"
     :key="task.id"
@@ -35,6 +36,10 @@ export default {
     },
     idListImportant: {
       type: Boolean,
+      required: true,
+    },
+    nameListDisplay: {
+      type: String,
       required: true,
     },
   },

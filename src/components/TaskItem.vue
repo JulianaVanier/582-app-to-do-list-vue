@@ -1,5 +1,5 @@
 <template>
-  <!-- <h2>{{ lists.name }}</h2> -->
+  <!-- <h2>{{ list.name }}</h2> -->
   <div class="box-task">
     <div class="task-item">
       <input type="checkbox" name="task" value="{{tasks.id}}" />

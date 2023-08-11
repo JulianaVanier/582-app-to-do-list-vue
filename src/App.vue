@@ -19,6 +19,7 @@
           :lists="lists"
           :idListDisplay="idListDisplay"
           :idListImportant="idListImportant"
+          :nameListDisplay="nameListDisplay"
           @deleteList="deleteList"
           @addLabelImportant="addLabelImportant"
           @deleteThisTask="deleteThisTask"
@@ -39,6 +40,7 @@ export default {
     return {
       idListDisplay: 0,
       idListImportant: 0,
+      nameListDisplay: "",
       lists: [
         {
           id: 1,
@@ -50,7 +52,7 @@ export default {
         },
         {
           id: 3,
-          name: "Travel Disney",
+          name: "Vacation",
         },
       ],
       tasks: [
@@ -60,7 +62,6 @@ export default {
           date: "2023-01-01",
           responsability: "Person 1",
           listId: 1,
-          listName: "List 1",
           labelImportant: false,
         },
         {
@@ -69,7 +70,6 @@ export default {
           date: "2023-01-02",
           responsability: "Person 2",
           listId: 2,
-          listName: "List 2",
           labelImportant: false,
         },
         {
@@ -78,7 +78,6 @@ export default {
           date: "2023-01-03",
           responsability: "Person 3",
           listId: 2,
-          listName: "List 2",
           labelImportant: false,
         },
         {
@@ -87,7 +86,6 @@ export default {
           date: "2023-01-04",
           responsability: "Person 4",
           listId: 3,
-          listName: "List 3",
           labelImportant: false,
         },
         {
@@ -96,7 +94,6 @@ export default {
           date: "2023-01-05",
           responsability: "Person 5",
           listId: 3,
-          listName: "List 3",
           labelImportant: false,
         },
         {
@@ -105,7 +102,6 @@ export default {
           date: "2023-01-06",
           responsability: "Person 6",
           listId: 3,
-          listName: "List 3",
           labelImportant: false,
         },
         {
@@ -114,7 +110,6 @@ export default {
           date: "2023-01-07",
           responsability: "Person 7",
           listId: 3,
-          listName: "List 3",
           labelImportant: false,
         },
         {
@@ -123,7 +118,6 @@ export default {
           date: "2023-01-08",
           responsability: "Person 8",
           listId: 1,
-          listName: "List 1",
           labelImportant: false,
         },
         {
@@ -132,7 +126,6 @@ export default {
           date: "2023-01-09",
           responsability: "Person 9",
           listId: 2,
-          listName: "List 2",
           labelImportant: false,
         },
         {
@@ -141,7 +134,6 @@ export default {
           date: "2023-01-06",
           responsability: "Person 10",
           listId: 3,
-          listName: "List 3",
           labelImportant: false,
         },
         {
@@ -150,7 +142,6 @@ export default {
           date: "2023-01-07",
           responsability: "Person 11",
           listId: 3,
-          listName: "List 3",
           labelImportant: false,
         },
         {
@@ -159,7 +150,6 @@ export default {
           date: "2023-01-08",
           responsability: "Person 12",
           listId: 1,
-          listName: "List 1",
           labelImportant: false,
         },
         {
@@ -168,7 +158,6 @@ export default {
           date: "2023-01-09",
           responsability: "Person 13",
           listId: 2,
-          listName: "List 2",
           labelImportant: false,
         },
       ],
@@ -210,23 +199,17 @@ export default {
     tasksOfList(id) {
       this.idListDisplay = id;
       this.idListImportant = false;
-      // for (let i = 0; i < this.tasks.length; i++) {
-      //   if (this.tasks[i].listId === id) {
-      //     // console.log(this.tasks[i].listId);
-      //     this.id = id;
-      //   }
-      // }
+      for (let i = 0; i < this.lists.length; i++) {
+        if (this.lists[i].id === id) {
+          this.nameListDisplay = this.lists[i].name;
+        }
+      }
     },
     importantList() {
       this.idListImportant = true;
       this.idListDisplay = 0;
-      console.log("look", this.idListImportant);
-      // for (let i = 0; i < this.tasks.length; i++) {
-      //   if (this.tasks[i].labelImportant === true) {
-      //     // console.log(this.tasks[i].listId);
-      //     idListImportant.push(this.tasks[i]);
-      //   }
-      // }
+      this.nameListDisplay = "Important";
+      // console.log("look", this.idListImportant);
     },
   },
 };
