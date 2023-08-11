@@ -215,6 +215,7 @@ export default {
 
     .btn-list {
       font-family: "Poppins", sans-serif;
+      color: #292827;
       width: 100%;
       height: 50px;
       display: flex;
@@ -225,7 +226,27 @@ export default {
       cursor: pointer;
       &:hover {
         background-color: #f1eded;
+        cursor: pointer;
       }
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+  .box-menu {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
     }
   }
 }

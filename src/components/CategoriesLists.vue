@@ -1,7 +1,8 @@
 <template>
+  <div class="box-menu"><img src="/img/menu.png" alt="" /></div>
   <div class="box-lists">
     <div class="btn-list" @click="showImportantTasks">
-      <img src="docs/img/icon-star.png" alt="" />Important
+      <img src="/img/icon-star.png" alt="" />Important
     </div>
     <div v-for="list in lists" :key="list.id">
       <div
@@ -10,7 +11,7 @@
         testid="buttonList"
         @click="showTasksOfList(list.id)"
       >
-        <img src="docs/img/icon-list.png" alt="" />{{ list.name }}
+        <img src="/img/icon-list.png" alt="" />{{ list.name }}
       </div>
     </div>
 
