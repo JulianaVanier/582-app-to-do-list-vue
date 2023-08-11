@@ -2,9 +2,14 @@
   <!-- <h2>{{ list.name }}</h2> -->
   <div class="box-task">
     <div class="task-item">
-      <input type="checkbox" name="task" value="{{tasks.id}}" />
+      <input
+        type="checkbox"
+        name="task"
+        value="{{tasks.id}}"
+        @click="taskCompleted"
+      />
       <!-- <h1>{{ tasks.listName }}</h1> -->
-      <label for="task"
+      <label for="task" :class="{ done }"
         ><p data-testid="taskName">{{ tasks.name }}</p></label
       >
       <!-- <p>Date: {{ tasks.date }}</p>
@@ -36,6 +41,7 @@ export default {
   data() {
     return {
       isAddedImp: false,
+      done: false,
     };
   },
   methods: {
@@ -47,6 +53,11 @@ export default {
     deleteTask() {
       // console.log("testdelete");
       this.$emit("deleteThisTask", this.tasks.id);
+    },
+    taskCompleted() {
+      console.log("taskcompleted");
+      this.done = !this.done;
+      // this.$emit("taskCompleted", this.tasks.id);
     },
   },
 };

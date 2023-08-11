@@ -25,6 +25,7 @@
           @deleteThisTask="deleteThisTask"
         ></ListOfTasks>
       </div>
+      <!-- {{ this.counter }} -->
     </div>
   </section>
 </template>
@@ -41,6 +42,7 @@ export default {
       idListDisplay: 0,
       idListImportant: 0,
       nameListDisplay: "",
+      // counter: 0,
       lists: [
         {
           id: 1,
@@ -170,11 +172,7 @@ export default {
   },
   methods: {
     addLabelImportant(id) {
-      // console.log("testimportant3");
       for (let i = 0; i < this.tasks.length; i++) {
-        // console.log("testimportant4");
-        // console.log(this.tasks.length);
-        // console.log(id);
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = true;
           console.log(this.tasks[i].labelImportant);
@@ -209,8 +207,22 @@ export default {
       this.idListImportant = true;
       this.idListDisplay = 0;
       this.nameListDisplay = "Important";
-      // console.log("look", this.idListImportant);
     },
+  },
+  computed: {
+    // counterTasksPerList() {
+    //   for (let i = 0; i < this.lists.length; i++) {
+    //     let counter = 0;
+    //     for (let j = 0; j < this.tasks.length; j++) {
+    //       if (this.tasks[j].listId === this.lists[i].id) {
+    //         this.counter++;
+    //       }
+    //     }
+    //     this.lists[i].counterTasks = counter;
+    //     console.log(this.lists[i].counterTasks);
+    //   }
+    //   return this.lists;
+    // },
   },
 };
 </script>
@@ -333,6 +345,9 @@ export default {
       }
       p {
         margin-left: 10px;
+      }
+      .done p {
+        text-decoration: line-through;
       }
     }
   }
