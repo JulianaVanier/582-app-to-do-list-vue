@@ -141,6 +141,7 @@ export default {
     },
     tasksOfList(id) {
       this.idListDisplay = id;
+      this.idListImportant = false;
       // for (let i = 0; i < this.tasks.length; i++) {
       //   if (this.tasks[i].listId === id) {
       //     // console.log(this.tasks[i].listId);
@@ -150,6 +151,7 @@ export default {
     },
     importantList() {
       this.idListImportant = true;
+      this.idListDisplay = 0;
       console.log("look", this.idListImportant);
       // for (let i = 0; i < this.tasks.length; i++) {
       //   if (this.tasks[i].labelImportant === true) {
