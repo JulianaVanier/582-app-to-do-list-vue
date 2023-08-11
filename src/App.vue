@@ -15,6 +15,7 @@
       <div class="box-body-right">
         <ListOfTasks
           :tasks="tasks"
+          :lists="lists"
           :idListDisplay="idListDisplay"
           :idListImportant="idListImportant"
           @deleteList="deleteList"
@@ -175,7 +176,11 @@ export default {
   // color: #2c3e50;
   // margin-top: 60px;
   // background-color: #f1eded;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
+// STYLE APP
 * {
   margin: 0;
   padding: 0;
@@ -183,7 +188,7 @@ export default {
   // background-color: #faf9f8;
 }
 .body-app {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -238,6 +243,8 @@ export default {
       margin-right: 10px;
     }
   }
+
+  // STYLE CATEGORIES LISTS
   .box-menu {
     width: 100%;
     height: 50px;
@@ -249,6 +256,43 @@ export default {
       width: 20px;
       height: 20px;
       margin-right: 10px;
+    }
+  }
+  // STYLE TASKITEM
+  .box-task {
+    display: flex;
+    justify-content: space-around;
+    .task-item {
+      background-color: white;
+      font-family: "Poppins", sans-serif;
+      color: #292827;
+      // font-size: 14px;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 20px;
+      border: 1px solid #ffffff;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      border-radius: 5px;
+      margin: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #f1eded;
+        cursor: pointer;
+      }
+
+      img {
+        width: 15px;
+        height: 15px;
+        margin: 0 10px;
+      }
+
+      p {
+        margin-left: 10px;
+      }
     }
   }
 }

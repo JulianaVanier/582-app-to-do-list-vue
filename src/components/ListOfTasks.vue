@@ -3,6 +3,7 @@
     v-for="task in filterList"
     :key="task.id"
     :tasks="task"
+    :lists="lists"
     :title="task.listName"
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
