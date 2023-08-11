@@ -42,21 +42,21 @@ export default {
       lists: [
         {
           id: 1,
-          name: "List 1",
+          name: "Financial",
         },
         {
           id: 2,
-          name: "List 2",
+          name: "Home",
         },
         {
           id: 3,
-          name: "List 3",
+          name: "Travel Disney",
         },
       ],
       tasks: [
         {
           id: 1,
-          name: "Task 1",
+          name: "Analyze monthly expenses and income to create an updated budget plan.",
           date: "2023-01-01",
           responsability: "Person 1",
           listId: 1,
@@ -65,7 +65,7 @@ export default {
         },
         {
           id: 2,
-          name: "Task 2",
+          name: "Dedicate 30 minutes to declutter and organize the kitchen pantry.",
           date: "2023-01-02",
           responsability: "Person 2",
           listId: 2,
@@ -74,7 +74,7 @@ export default {
         },
         {
           id: 3,
-          name: "Task 3",
+          name: "Water indoor plants and check for signs of pests.",
           date: "2023-01-03",
           responsability: "Person 3",
           listId: 2,
@@ -83,7 +83,7 @@ export default {
         },
         {
           id: 4,
-          name: "Task 4",
+          name: "Book admission tickets for Disneyland and Disney California Adventure parks.",
           date: "2023-01-04",
           responsability: "Person 4",
           listId: 3,
@@ -92,7 +92,7 @@ export default {
         },
         {
           id: 5,
-          name: "Task 5",
+          name: " Secure hotel accommodation within the Disney Resort for the duration of the trip.",
           date: "2023-01-05",
           responsability: "Person 5",
           listId: 3,
@@ -101,11 +101,74 @@ export default {
         },
         {
           id: 6,
-          name: "Task 6",
+          name: " Make advanced dining reservations at popular Disney restaurants.",
           date: "2023-01-06",
           responsability: "Person 6",
           listId: 3,
           listName: "List 3",
+          labelImportant: false,
+        },
+        {
+          id: 7,
+          name: "Select preferred FastPass attractions to minimize wait times.",
+          date: "2023-01-07",
+          responsability: "Person 7",
+          listId: 3,
+          listName: "List 3",
+          labelImportant: false,
+        },
+        {
+          id: 8,
+          name: "Set up a dedicated savings account for the upcoming vacation using automated transfers.",
+          date: "2023-01-08",
+          responsability: "Person 8",
+          listId: 1,
+          listName: "List 1",
+          labelImportant: false,
+        },
+        {
+          id: 9,
+          name: "Clean out the dryer vent to ensure proper airflow and prevent potential hazards.",
+          date: "2023-01-09",
+          responsability: "Person 9",
+          listId: 2,
+          listName: "List 2",
+          labelImportant: false,
+        },
+        {
+          id: 10,
+          name: "Create a detailed daily itinerary, including must-visit attractions and entertainment shows.",
+          date: "2023-01-06",
+          responsability: "Person 10",
+          listId: 3,
+          listName: "List 3",
+          labelImportant: false,
+        },
+        {
+          id: 11,
+          name: "Set a budget for souvenirs and merchandise purchases throughout the trip.",
+          date: "2023-01-07",
+          responsability: "Person 11",
+          listId: 3,
+          listName: "List 3",
+          labelImportant: false,
+        },
+        {
+          id: 12,
+          name: "Research potential investment opportunities in renewable energy stocks.",
+          date: "2023-01-08",
+          responsability: "Person 12",
+          listId: 1,
+          listName: "List 1",
+          labelImportant: false,
+        },
+        {
+          id: 13,
+          name: "Rearrange and categorize books on the bookshelf by genre or alphabetical order.",
+          date: "2023-01-09",
+          responsability: "Person 13",
+          listId: 2,
+          listName: "List 2",
           labelImportant: false,
         },
       ],
@@ -173,13 +236,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 #app {
-  // font-family: Avenir, Helvetica, Arial, sans-serif;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
-  // color: #2c3e50;
-  // margin-top: 60px;
-  // background-color: #f1eded;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -267,7 +323,7 @@ export default {
     display: flex;
     justify-content: space-around;
     .task-item {
-      background-color: white;
+      background-color: #ffffff;
       font-family: "Poppins", sans-serif;
       color: #292827;
       // font-size: 14px;
@@ -277,7 +333,7 @@ export default {
       justify-content: flex-start;
       align-items: center;
       padding-left: 20px;
-      border: 1px solid #ffffff;
+
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
         rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
       border-radius: 5px;
@@ -287,13 +343,11 @@ export default {
         background-color: #f1eded;
         cursor: pointer;
       }
-
       img {
         width: 15px;
         height: 15px;
         margin: 0 10px;
       }
-
       p {
         margin-left: 10px;
       }
