@@ -336,6 +336,20 @@ export default {
       }
     }
   }
-  // STYLE HEADER
+  // ListOfTasks
+  .box-title-list {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 20px;
+
+    h2 {
+      font-family: "Poppins", sans-serif;
+      color: #00095e;
+      font-size: 25px;
+      margin: 20px 0 10px 20px;
+      letter-spacing: 1px;
+    }
+  }
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  {{ nameListDisplay }}
+  <div class="box-title-list">
+    <h2>{{ nameListDisplay }}</h2>
+  </div>
   <TaskItem
     v-for="task in filterList"
     :key="task.id"
