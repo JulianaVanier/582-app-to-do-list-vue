@@ -2,6 +2,7 @@
   <!-- <button v-for="task in tasks" :key="task.id">
     {{ task.labelImportant === true ? "Important" : "" }}
   </button> -->
+  <HeaderApp></HeaderApp>
   <section class="body-app">
     <div class="box-body">
       <div class="box-body-left">
@@ -30,6 +31,7 @@
 <script>
 import CategoriesLists from "./components/CategoriesLists.vue";
 import ListOfTasks from "./components/ListOfTasks.vue";
+import HeaderApp from "./components/HeaderApp.vue";
 
 export default {
   name: "App",
@@ -112,6 +114,7 @@ export default {
   components: {
     CategoriesLists,
     ListOfTasks,
+    HeaderApp,
   },
   methods: {
     addLabelImportant(id) {
@@ -127,6 +130,7 @@ export default {
       }
     },
     deleteThisTask(id) {
+      if (confirm("Are you sure you want to delete this task?") != true) return;
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           this.tasks.splice(i, 1);
@@ -295,5 +299,6 @@ export default {
       }
     }
   }
+  // STYLE HEADER
 }
 </style>
