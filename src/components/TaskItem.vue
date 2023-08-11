@@ -10,7 +10,8 @@
       <!-- <p>Date: {{ tasks.date }}</p>
     <p>Responsability: {{ tasks.responsability }}</p> -->
       <div data testid="addImportant" @click="addImportant">
-        <img src="/img/icon-star.png" alt="icon star" />
+        <img v-if="!isAddedImp" src="/img/icon-star.png" alt="icon star" />
+        <img v-else-if="isAddedImp" src="/img/favourite.png" alt="icon star" />
       </div>
       <div data testid="deleteTask" @click="deleteTask">
         <img src="/img/delete.png" alt="icon delete" />
@@ -32,10 +33,16 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isAddedImp: false,
+    };
+  },
   methods: {
     addImportant() {
       // console.log("testimportant");
       this.$emit("addLabelImportant", this.tasks.id);
+      this.isAddedImp = true;
     },
     deleteTask() {
       // console.log("testdelete");
