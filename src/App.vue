@@ -1,7 +1,4 @@
 <template>
-  <!-- <button v-for="task in tasks" :key="task.id">
-    {{ task.labelImportant === true ? "Important" : "" }}
-  </button> -->
   <HeaderApp></HeaderApp>
   <section class="body-app">
     <div class="box-body">
@@ -21,9 +18,11 @@
           :idListDisplay="idListDisplay"
           :idListImportant="idListImportant"
           :nameListDisplay="nameListDisplay"
+          v-model="name"
           @addLabelImportant="addLabelImportant"
           @deleteThisTask="deleteThisTask"
           @removeLabelImportant="removeLabelImportant"
+          @addNewTask="addNewTask"
         ></ListOfTasks>
       </div>
       <!-- {{ this.counter }} -->
@@ -67,7 +66,6 @@ export default {
           id: 1,
           name: "Analyze monthly expenses and income to create an updated budget plan.",
           date: "2023-01-01",
-          responsability: "Person 1",
           listId: 1,
           labelImportant: false,
         },
@@ -75,7 +73,6 @@ export default {
           id: 2,
           name: "Dedicate 30 minutes to declutter and organize the kitchen pantry.",
           date: "2023-01-02",
-          responsability: "Person 2",
           listId: 2,
           labelImportant: false,
         },
@@ -83,7 +80,6 @@ export default {
           id: 3,
           name: "Water indoor plants and check for signs of pests.",
           date: "2023-01-03",
-          responsability: "Person 3",
           listId: 2,
           labelImportant: false,
         },
@@ -91,7 +87,6 @@ export default {
           id: 4,
           name: "Book admission tickets for Disneyland and Disney California Adventure parks.",
           date: "2023-01-04",
-          responsability: "Person 4",
           listId: 3,
           labelImportant: false,
         },
@@ -99,7 +94,6 @@ export default {
           id: 5,
           name: " Secure hotel accommodation within the Disney Resort for the duration of the trip.",
           date: "2023-01-05",
-          responsability: "Person 5",
           listId: 3,
           labelImportant: false,
         },
@@ -107,7 +101,6 @@ export default {
           id: 6,
           name: " Make advanced dining reservations at popular Disney restaurants.",
           date: "2023-01-06",
-          responsability: "Person 6",
           listId: 3,
           labelImportant: false,
         },
@@ -115,7 +108,6 @@ export default {
           id: 7,
           name: "Select preferred FastPass attractions to minimize wait times.",
           date: "2023-01-07",
-          responsability: "Person 7",
           listId: 3,
           labelImportant: false,
         },
@@ -123,7 +115,6 @@ export default {
           id: 8,
           name: "Set up a dedicated savings account for the upcoming vacation using automated transfers.",
           date: "2023-01-08",
-          responsability: "Person 8",
           listId: 1,
           labelImportant: false,
         },
@@ -131,7 +122,6 @@ export default {
           id: 9,
           name: "Clean out the dryer vent to ensure proper airflow and prevent potential hazards.",
           date: "2023-01-09",
-          responsability: "Person 9",
           listId: 2,
           labelImportant: false,
         },
@@ -139,7 +129,6 @@ export default {
           id: 10,
           name: "Create a detailed daily itinerary, including must-visit attractions and entertainment shows.",
           date: "2023-01-06",
-          responsability: "Person 10",
           listId: 3,
           labelImportant: false,
         },
@@ -147,7 +136,6 @@ export default {
           id: 11,
           name: "Set a budget for souvenirs and merchandise purchases throughout the trip.",
           date: "2023-01-07",
-          responsability: "Person 11",
           listId: 3,
           labelImportant: false,
         },
@@ -155,7 +143,6 @@ export default {
           id: 12,
           name: "Research potential investment opportunities in renewable energy stocks.",
           date: "2023-01-08",
-          responsability: "Person 12",
           listId: 1,
           labelImportant: false,
         },
@@ -163,7 +150,6 @@ export default {
           id: 13,
           name: "Rearrange and categorize books on the bookshelf by genre or alphabetical order.",
           date: "2023-01-09",
-          responsability: "Person 13",
           listId: 2,
           labelImportant: false,
         },
@@ -221,8 +207,20 @@ export default {
       this.idListDisplay = 0;
       this.nameListDisplay = "Important";
     },
+    addNewTask(listId, name) {
+      // console.log(newTask);
+      // console.log(idListDisplay);
+      this.tasks.push({
+        id: this.tasks.length + 1,
+        name: name,
+        date: new Date().toISOString().slice(0, 10),
+        listId: listId,
+        labelImportant: false,
+      });
+      // this.newTaskName = "";
+    },
     counterTasksPerList() {
-      console.log("deu");
+      console.log("chips");
       for (let i = 0; i < this.lists.length; i++) {
         for (let j = 0; j < this.tasks.length; j++) {
           if (this.tasks[j].listId === this.lists[i].id) {
@@ -231,7 +229,7 @@ export default {
         }
       }
     },
-    // mounted() {
+    // mounted: function () {
     //   // this.counterTasksPerList();
     //   console.log("ju");
     // },
@@ -397,6 +395,65 @@ export default {
       font-size: 25px;
       margin: 20px 0 10px 20px;
       letter-spacing: 1px;
+    }
+  }
+  .box-add-task {
+    background-color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    color: #42b883;
+    // font-size: 14px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: 5px;
+    margin: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      background-color: #f1eded;
+      cursor: pointer;
+    }
+  }
+  .box-task {
+    display: flex;
+    justify-content: space-around;
+    .task-item {
+      background-color: #ffffff;
+      font-family: "Poppins", sans-serif;
+      color: #292827;
+      // font-size: 14px;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 20px;
+
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      border-radius: 5px;
+      margin: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #f1eded;
+        cursor: pointer;
+      }
+      img {
+        width: 15px;
+        height: 15px;
+        margin: 0 10px;
+      }
+      p {
+        margin-left: 10px;
+      }
+      .done p {
+        text-decoration: line-through;
+      }
     }
   }
 }

@@ -2,12 +2,25 @@
   <div class="box-title-list">
     <h2>{{ nameListDisplay }}</h2>
   </div>
+  <div class="box-add-task" v-if="idListDisplay != 0">+ Add new task</div>
+  <div class="formAddTask">
+    <form @submit.prevent="addNewTask(idListDisplay)">
+      <input
+        type="text"
+        name="task"
+        placeholder="Add new task"
+        v-model="name"
+      />
+      <input type="submit" value="Add" />
+    </form>
+  </div>
   <TaskItem
     v-for="task in filterList"
     :key="task.id"
     :tasks="task"
     :lists="lists"
     :title="task.listName"
+    :idListDisplay="idListDisplay"
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
     @removeLabelImportant="removeLabelImportant"
@@ -46,13 +59,18 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      newTask: "",
+    };
+  },
   components: {
     TaskItem,
   },
   methods: {
     addLabelImportant(id) {
       // console.log("testimportant2");
-      // console.log(id);
+      console.log(id);
       this.$emit("addLabelImportant", id);
     },
     deleteThisTask(id) {
@@ -61,11 +79,18 @@ export default {
     removeLabelImportant(id) {
       this.$emit("removeLabelImportant", id);
     },
+    addNewTask(idListDisplay) {
+      this.$emit("addNewTask", idListDisplay, this.name);
+      // this.$emit("addNewTask");
+      // console.log(this.newTask);
+      // console.log(idListDisplay);
+      // this.$emit("addNewTask", this.idListDisplay);
+    },
   },
   computed: {
     filterList() {
       var list = [];
-      // console.log("here", this.idListImportant);
+      // console.log("here", this.idListDisplay);
       if (this.idListImportant === true) {
         for (let i = 0; i < this.tasks.length; i++) {
           if (this.tasks[i].labelImportant === true) {
