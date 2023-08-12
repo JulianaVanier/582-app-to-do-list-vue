@@ -1,27 +1,159 @@
-// import { shallowMount } from "@vue/test-utils";
-// import ListOfTasks from "@/components/ListOfTasks";
+import { shallowMount } from "@vue/test-utils";
+import ListOfTasks from "@/components/ListOfTasks.vue";
 
-// describe("ListOfTasks.vue", () => {
-//   // Props
-//   it("renders props.tasks when passed", () => {
+describe("ListOfTasks.vue", () => {
+  // Props
+  it("renders props.tasks when passed", () => {
+    const tasks = {
+        id: 1,
+        name: "Task 1",
+        date: "2023-01-01",
+        responsability: "Person 1",
+        list_id: 1,
+      };
+      const wrapper = shallowMount(ListOfTasks, {
+        props: { tasks },
+      });
+  
+      expect(wrapper.exists()).toBe(true);
+  });
 
-//   });
+  it('emits addLabelImportant event when addLabelImportant method is called', async () => {
+    const tasks = {
+        id: 1,
+        name: "Task 1",
+        date: "2023-01-01",
+        responsability: "Person 1",
+        list_id: 1,
+      };
+      const wrapper = shallowMount(ListOfTasks, {
+        props: { tasks },
+      });
 
-//   //   Import
-//   it("import component TaskItem working", () => {
-// });
+    await wrapper.vm.addLabelImportant(tasks.id);
 
-//   it("computed set correct this.countTasks", () => {});
+    expect(wrapper.emitted().addLabelImportant).toBeTruthy();
+    expect(wrapper.emitted().addLabelImportant[0]).toEqual([tasks.id]);
+  });
 
-//   it("display countTasks working", () => {});
+  it('emits deleteThisTask event when deleteThisTask method is called', async () => {
+    const tasks = {
+        id: 1,
+        name: "Task 1",
+        date: "2023-01-01",
+        responsability: "Person 1",
+        list_id: 1,
+      };
+      const wrapper = shallowMount(ListOfTasks, {
+        props: { tasks },
+      });
 
-//  //   Listeners
 
-//   it("listeners receiving emit", () => {});
+    await wrapper.vm.deleteThisTask(tasks.id);
 
-//   it("emit an addImportant event", () => {});
+    expect(wrapper.emitted().deleteThisTask).toBeTruthy();
+    expect(wrapper.emitted().deleteThisTask[0]).toEqual([tasks.id]);
+  });
 
-//   it("emit an addToday event", () => {});
+  it('filterList for idListImportant is false', async () => {
+    const tasks = [
+      {
+        id: 1,
+        name: "Analyze monthly expenses and income to create an updated budget plan.",
+        date: "2023-01-01",
+        responsability: "Person 1",
+        listId: 1,
+        labelImportant: false,
+      },
+      {
+        id: 2,
+        name: "Dedicate 30 minutes to declutter and organize the kitchen pantry.",
+        date: "2023-01-02",
+        responsability: "Person 2",
+        listId: 2,
+        labelImportant: false,
+      },
+    ];
 
-//   it("emit task id event", () => {});
-// });
+
+    const wrapper = shallowMount(ListOfTasks, {
+      props: {
+        tasks: tasks,
+        lists: [
+            {
+              id: 1,
+              name: "Financial",
+            },
+            {
+              id: 2,
+              name: "Home",
+            },
+            {
+              id: 3,
+              name: "Vacation",
+            },
+          ],
+        idListDisplay: 2,
+        idListImportant: false,
+        nameListDisplay: "Home",
+      },
+    });
+
+    const filteredTasks = wrapper.vm.filterList;
+    const expectedTasks = tasks.filter(task => task.listId === 2);
+    
+    expect(filteredTasks).toEqual(expectedTasks);
+  });
+
+  it('filterList when idListImportant is true', async () => {
+    const tasks = [
+        {
+          id: 1,
+          name: "Analyze monthly expenses and income to create an updated budget plan.",
+          date: "2023-01-01",
+          responsability: "Person 1",
+          listId: 1,
+          labelImportant: false,
+        },
+        {
+          id: 2,
+          name: "Dedicate 30 minutes to declutter and organize the kitchen pantry.",
+          date: "2023-01-02",
+          responsability: "Person 2",
+          listId: 2,
+          labelImportant: false,
+        },
+      ];
+  
+  
+      const wrapper = shallowMount(ListOfTasks, {
+        props: {
+          tasks: tasks,
+          lists: [
+              {
+                id: 1,
+                name: "Financial",
+              },
+              {
+                id: 2,
+                name: "Home",
+              },
+              {
+                id: 3,
+                name: "Vacation",
+              },
+            ],
+          idListDisplay: 2,
+          idListImportant: true,
+          nameListDisplay: "Home",
+        },
+      });
+
+    const filteredTasks = wrapper.vm.filterList;
+    const expectedTasks = tasks.filter(task => task.listId === 2 && task.labelImportant === true);
+    
+    expect(filteredTasks).toEqual(expectedTasks);
+  });
+
+});
+
