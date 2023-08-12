@@ -34,6 +34,7 @@
 import CategoriesLists from "./components/CategoriesLists.vue";
 import ListOfTasks from "./components/ListOfTasks.vue";
 import HeaderApp from "./components/HeaderApp.vue";
+import { onMounted } from "vue";
 
 export default {
   name: "App",
@@ -42,19 +43,21 @@ export default {
       idListDisplay: 0,
       idListImportant: 0,
       nameListDisplay: "",
-      // counter: 0,
       lists: [
         {
           id: 1,
           name: "Financial",
+          qt: 0,
         },
         {
           id: 2,
           name: "Home",
+          qt: 0,
         },
         {
           id: 3,
           name: "Vacation",
+          qt: 0,
         },
       ],
       tasks: [
@@ -215,23 +218,27 @@ export default {
       this.idListDisplay = 0;
       this.nameListDisplay = "Important";
     },
+    counterTasksPerList() {
+      for (let i = 0; i < this.lists.length; i++) {
+        for (let j = 0; j < this.tasks.length; j++) {
+          if (this.tasks[j].listId === this.lists[i].id) {
+            this.lists[i].qt = this.lists[i].qt + 1;
+          }
+        }
+      }
+    },
+    mounted() {
+      // this.counterTasksPerList();
+      console.log("ju");
+    },
   },
-  computed: {
-    // counterTasksPerList() {
-    //   for (let i = 0; i < this.lists.length; i++) {
-    //     let counter = 0;
-    //     for (let j = 0; j < this.tasks.length; j++) {
-    //       if (this.tasks[j].listId === this.lists[i].id) {
-    //         this.counter++;
-    //       }
-    //     }
-    //     this.lists[i].counterTasks = counter;
-    //     console.log(this.lists[i].counterTasks);
-    //   }
-    //   return this.lists;
-    // },
-  },
+  // computed: {
+
+  // },
 };
+// onMounted(() => {
+//   console.log("mounted");
+// });
 </script>
 
 <style lang="scss">
