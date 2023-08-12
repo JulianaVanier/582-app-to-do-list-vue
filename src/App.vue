@@ -23,6 +23,7 @@
           :nameListDisplay="nameListDisplay"
           @addLabelImportant="addLabelImportant"
           @deleteThisTask="deleteThisTask"
+          @removeLabelImportant="removeLabelImportant"
         ></ListOfTasks>
       </div>
       <!-- {{ this.counter }} -->
@@ -34,7 +35,8 @@
 import CategoriesLists from "./components/CategoriesLists.vue";
 import ListOfTasks from "./components/ListOfTasks.vue";
 import HeaderApp from "./components/HeaderApp.vue";
-import { onMounted } from "vue";
+// import { onMounted } from "vue";
+// import { ref } from "vue";
 
 export default {
   name: "App",
@@ -186,6 +188,7 @@ export default {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = false;
+          console.log(this.tasks[i].labelImportant);
         }
       }
     },
@@ -219,6 +222,7 @@ export default {
       this.nameListDisplay = "Important";
     },
     counterTasksPerList() {
+      console.log("deu");
       for (let i = 0; i < this.lists.length; i++) {
         for (let j = 0; j < this.tasks.length; j++) {
           if (this.tasks[j].listId === this.lists[i].id) {
@@ -227,11 +231,21 @@ export default {
         }
       }
     },
-    mounted() {
-      // this.counterTasksPerList();
-      console.log("ju");
-    },
+    // mounted() {
+    //   // this.counterTasksPerList();
+    //   console.log("ju");
+    // },
   },
+  // setup() {
+  //   const counter = ref(0);
+  //   onMounted(() => {
+  //     // this.counterTasksPerList();
+  //     console.log("this is ", counter);
+  //   });
+  //   return {
+  //     counter,
+  //   };
+  // },
   // computed: {
 
   // },

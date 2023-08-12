@@ -10,6 +10,7 @@
     :title="task.listName"
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
+    @removeLabelImportant="removeLabelImportant"
   >
   </TaskItem>
   <!-- {{ idListImportant }} -->
@@ -56,6 +57,9 @@ export default {
     },
     deleteThisTask(id) {
       this.$emit("deleteThisTask", id);
+    },
+    removeLabelImportant(id) {
+      this.$emit("removeLabelImportant", id);
     },
   },
   computed: {
