@@ -217,7 +217,7 @@ export default {
         listId: listId,
         labelImportant: false,
       });
-      // this.newTaskName = "";
+      this.lists[listId - 1].qt = this.lists[listId - 1].qt + 1;
     },
     counterTasksPerList() {
       console.log("chips");
@@ -229,28 +229,12 @@ export default {
         }
       }
     },
-    // mounted: function () {
-    //   // this.counterTasksPerList();
-    //   console.log("ju");
-    // },
   },
-  // setup() {
-  //   const counter = ref(0);
-  //   onMounted(() => {
-  //     // this.counterTasksPerList();
-  //     console.log("this is ", counter);
-  //   });
-  //   return {
-  //     counter,
-  //   };
-  // },
-  // computed: {
-
-  // },
+  mounted: function () {
+    this.counterTasksPerList();
+    // console.log("ju");
+  },
 };
-// onMounted(() => {
-//   console.log("mounted");
-// });
 </script>
 
 <style lang="scss">
@@ -338,6 +322,11 @@ export default {
       height: 20px;
       margin-right: 10px;
     }
+  }
+  .qt-tasks {
+    padding-right: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #292827;
   }
   // STYLE TASKITEM
   .contentTask {

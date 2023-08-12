@@ -13,6 +13,7 @@
       >
         <img src="/img/icon-list.png" alt="icon list" />{{ list.name }}
       </div>
+      <div class="qt-tasks">{{ list.qt }}</div>
       <div>
         <img
           class="imgDelete"
