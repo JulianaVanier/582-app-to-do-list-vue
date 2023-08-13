@@ -2,16 +2,17 @@
   <div class="box-title-list">
     <h2>{{ nameListDisplay }}</h2>
   </div>
-  <div class="box-add-task" v-if="idListDisplay != 0">+ Add new task</div>
-  <div class="formAddTask">
+  <!-- <div class="box-add-task" v-if="idListDisplay != 0">+ Add new task</div> -->
+  <div class="form-add-task" v-if="idListDisplay != 0">
     <form @submit.prevent="addNewTask(idListDisplay)">
       <input
         type="text"
         name="task"
-        placeholder="Add new task"
+        placeholder="+ Add new task"
         v-model="name"
+        class="input-add-task"
       />
-      <input type="submit" value="Add" />
+      <input class="input-btn" type="submit" value="+" />
     </form>
   </div>
   <TaskItem
@@ -81,6 +82,7 @@ export default {
     },
     addNewTask(idListDisplay) {
       this.$emit("addNewTask", idListDisplay, this.name);
+      this.name = "";
       // this.$emit("addNewTask");
       // console.log(this.newTask);
       // console.log(idListDisplay);

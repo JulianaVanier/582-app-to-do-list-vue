@@ -220,7 +220,6 @@ export default {
       });
       // this.lists[listId - 1].qt = this.lists[listId - 1].qt + 1;
       this.counterTasksPerList();
-      
     },
     counterTasksPerList() {
       // console.log("chips");
