@@ -24,13 +24,21 @@
         />
       </div>
     </div>
-
-    <!-- <ListOfTasks
-      :tasks="tasks"
-      @deleteList="deleteList"
-      @addLabelImportant="addLabelImportant"
-      @deleteThisTask="deleteThisTask"
-      ></ListOfTasks> -->
+    <div class="add-new-list">
+      <div class="btn-add-new-list">Add new list</div>
+      <div class="form-add-list" v-if="idListDisplay != 0">
+        <form @submit.prevent="addNewList">
+          <input
+            type="text"
+            name="task"
+            placeholder="+ Add new list"
+            v-model="name"
+            class="input-add-task"
+          />
+          <input class="input-btn" type="submit" value="+" />
+        </form>
+      </div>
+    </div>
   </div>
 
   <!-- <button data testid="deleteList" @click="deleteList">Delete List</button> -->
@@ -80,6 +88,10 @@ export default {
     // },
     showImportantTasks() {
       this.$emit("importantList");
+    },
+    addNewList() {
+      this.$emit("addNewList", this.name);
+      this.name = "";
     },
   },
 };

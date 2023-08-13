@@ -9,6 +9,7 @@
           @tasksOfList="tasksOfList"
           @importantList="importantList"
           @deleteList="deleteList"
+          @addNewList="addNewList"
         ></CategoriesLists>
       </div>
       <div class="box-body-right">
@@ -232,6 +233,13 @@ export default {
         }
       }
     },
+    addNewList(name) {
+      this.lists.push({
+        id: this.lists.length + 1,
+        name: name,
+        qt: 0,
+      });
+    },
   },
   mounted: function () {
     this.counterTasksPerList();
@@ -270,13 +278,13 @@ export default {
     height: 100%;
   }
   .box-body-left {
-    width: 20%;
+    width: 15%;
     height: 100%;
     background-color: white;
     border-right: 1px solid #d5d5d6;
   }
   .box-body-right {
-    width: 80%;
+    width: 85%;
     height: 100%;
     background-color: #faf9f8;
   }
@@ -372,6 +380,21 @@ export default {
       .done p {
         text-decoration: line-through;
       }
+    }
+  }
+  .add-new-list {
+    margin-top: 30px;
+
+    .btn-add-new-list {
+      border: none;
+      background-color: #77c9a4;
+      padding: 4px 7px;
+      /* border-radius: 100%; */
+      color: white;
+      font-family: "Poppins", sans-serif;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
     }
   }
   // ListOfTasks

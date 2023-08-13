@@ -27,10 +27,6 @@
     @removeLabelImportant="removeLabelImportant"
   >
   </TaskItem>
-  <!-- {{ idListImportant }} -->
-  <!-- {{ idListDisplay }} -->
-  <!-- <TaskItem v-for="task in filterImportant" :key="task.id" :tasks="task">
-  </TaskItem> -->
 </template>
 
 <script>
@@ -70,7 +66,6 @@ export default {
   },
   methods: {
     addLabelImportant(id) {
-      // console.log("testimportant2");
       console.log(id);
       this.$emit("addLabelImportant", id);
     },
@@ -83,10 +78,6 @@ export default {
     addNewTask(idListDisplay) {
       this.$emit("addNewTask", idListDisplay, this.name);
       this.name = "";
-      // this.$emit("addNewTask");
-      // console.log(this.newTask);
-      // console.log(idListDisplay);
-      // this.$emit("addNewTask", this.idListDisplay);
     },
   },
   computed: {
