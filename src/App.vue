@@ -234,6 +234,14 @@ export default {
       }
     },
     addNewList(name) {
+      // if (name === "") {
+      //   alert("Please, enter a name for the list.");
+      // } else {
+      //   this.lists.push({
+      //     id: this.lists.length + 1,
+      //     name: name,
+      //     qt: 0,
+      //   });
       this.lists.push({
         id: this.lists.length + 1,
         name: name,
@@ -278,13 +286,13 @@ export default {
     height: 100%;
   }
   .box-body-left {
-    width: 15%;
+    width: 18%;
     height: 100%;
     background-color: white;
     border-right: 1px solid #d5d5d6;
   }
   .box-body-right {
-    width: 85%;
+    width: 83%;
     height: 100%;
     background-color: #faf9f8;
   }
@@ -384,17 +392,36 @@ export default {
   }
   .add-new-list {
     margin-top: 30px;
-
-    .btn-add-new-list {
-      border: none;
-      background-color: #77c9a4;
-      padding: 4px 7px;
-      /* border-radius: 100%; */
-      color: white;
-      font-family: "Poppins", sans-serif;
-      font-size: 16px;
-      text-align: center;
-      cursor: pointer;
+    background-color: #77c9a4;
+    .form-add-list {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      form {
+        width: 100%;
+        ::placeholder {
+          color: white;
+          font-size: 16px;
+          font-family: "Poppins", sans-serif;
+          padding-left: 10px;
+        }
+        .input-add-list {
+          border: none;
+          font-family: "Poppins", sans-serif;
+          font-size: 16px;
+          color: #292827;
+          width: 80%;
+          height: 30px;
+          background-color: #77c9a4;
+        }
+        .input-btn-list {
+          border: none;
+          background-color: #ffffff;
+          padding: 4px 7px;
+          border-radius: 100%;
+          color: #77c9a4;
+        }
+      }
     }
   }
   // ListOfTasks

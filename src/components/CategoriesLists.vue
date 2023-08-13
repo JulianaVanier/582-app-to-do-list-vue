@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="add-new-list">
-      <div class="btn-add-new-list">Add new list</div>
+      <!-- <div class="btn-add-new-list">Add new list</div> -->
       <div class="form-add-list" v-if="idListDisplay != 0">
         <form @submit.prevent="addNewList">
           <input
@@ -33,9 +33,9 @@
             name="task"
             placeholder="+ Add new list"
             v-model="name"
-            class="input-add-task"
+            class="input-add-list"
           />
-          <input class="input-btn" type="submit" value="+" />
+          <input class="input-btn-list" type="submit" value="+" />
         </form>
       </div>
     </div>
