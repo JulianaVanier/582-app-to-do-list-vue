@@ -179,12 +179,13 @@ export default {
       }
     },
     deleteThisTask(id) {
-      if (confirm("Are you sure you want to delete this task?") != true) return;
+      // if (confirm("Are you sure you want to delete this task?") != true) return;
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           this.tasks.splice(i, 1);
         }
       }
+      this.counterTasksPerList();
     },
     deleteList(id) {
       for (let i = 0; i < this.lists.length; i++) {
@@ -217,11 +218,14 @@ export default {
         listId: listId,
         labelImportant: false,
       });
-      this.lists[listId - 1].qt = this.lists[listId - 1].qt + 1;
+      // this.lists[listId - 1].qt = this.lists[listId - 1].qt + 1;
+      this.counterTasksPerList();
+      
     },
     counterTasksPerList() {
-      console.log("chips");
+      // console.log("chips");
       for (let i = 0; i < this.lists.length; i++) {
+        this.lists[i].qt = 0;
         for (let j = 0; j < this.tasks.length; j++) {
           if (this.tasks[j].listId === this.lists[i].id) {
             this.lists[i].qt = this.lists[i].qt + 1;
@@ -442,6 +446,46 @@ export default {
       }
       .done p {
         text-decoration: line-through;
+      }
+    }
+  }
+  .form-add-task {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    /* color: #292827; */
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    padding-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: 5px;
+    margin: 0.5rem;
+    cursor: pointer;
+    form {
+      width: 100%;
+      ::placeholder {
+        color: #77c9a4;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+      }
+      .input-add-task {
+        border: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        color: #292827;
+        width: 35%;
+        height: 30px;
+      }
+      .input-btn {
+        border: none;
+        background-color: #77c9a4;
+        padding: 4px 7px;
+        border-radius: 100%;
+        color: white;
       }
     }
   }
