@@ -59,9 +59,6 @@ export default {
       required: true,
     },
   },
-  components: {
-    // ListOfTasks,
-  },
   methods: {
     addLabelImportant(id) {
       this.$emit("addLabelImportant", id);
@@ -71,20 +68,11 @@ export default {
     },
     deleteList(id) {
       this.$emit("deleteList", id);
-      console.log("btndellis", id);
     },
     showTasksOfList(id) {
-      // console.log("test-buttonlist");
-      // this.$emit("showTasksOfList", id);
-      // console.log(id);
       this.$emit("tasksOfList", id);
-      // this.$emit("tasksOfList");
-      // alert(`${this.list.id}`);
     },
-    // showImportantTask(id) {
-    //   this.$emit("importantList", id);
-    //   console.log(id);
-    // },
+
     showImportantTasks() {
       this.$emit("importantList");
     },

@@ -296,14 +296,40 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+header {
+  background: linear-gradient(to right, #00095e 0%, #0c0c1f 100%);
+  height: 100px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-.collapsed {
-  display: none;
+  .header-flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    transition: 0.5s;
+    margin: 0 30px;
+    .logo-holder {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        display: block;
+        width: auto;
+        max-height: 100%;
+      }
+      p {
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 0.2rem;
+        margin-left: 10px;
+        font-size: 18px;
+        color: white;
+      }
+    }
+  }
 }
 
-.expanded {
-  display: block;
-}
 #app {
   overflow: hidden;
   height: 100vh;
@@ -330,23 +356,47 @@ export default {
     width: 100%;
     height: 100%;
     background-color: #faf9f8;
+
+    .collapsed {
+      display: none;
+    }
+
+    .expanded {
+      display: block;
+    }
+
+    .box-body-left {
+      width: 220px;
+      height: 100%;
+      background-color: white;
+      border-right: 1px solid #d5d5d6;
+      // display: none;
+      z-index: 999;
+      position: fixed;
+      left: 0;
+    }
+    .box-body-right {
+      width: 100%;
+      height: 100%;
+      background-color: #faf9f8;
+      z-index: 1;
+    }
+    .box-menu {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding-left: 20px;
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+    }
   }
-  .box-body-left {
-    width: 220px;
-    height: 100%;
-    background-color: white;
-    border-right: 1px solid #d5d5d6;
-    // display: none;
-    z-index: 999;
-    position: fixed;
-    left: 0;
-  }
-  .box-body-right {
-    width: 100%;
-    height: 100%;
-    background-color: #faf9f8;
-    z-index: 1;
-  }
+
+  // STYLE CATEGORIES LISTS
   .box-lists {
     width: 100%;
     height: 100%;
@@ -354,6 +404,11 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: left;
+    .qt-tasks {
+      padding-right: 20px;
+      font-family: "Poppins", sans-serif;
+      color: #292827;
+    }
 
     .btn-list {
       font-family: "Poppins", sans-serif;
@@ -379,25 +434,6 @@ export default {
     }
   }
 
-  // STYLE CATEGORIES LISTS
-  .box-menu {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding-left: 20px;
-    img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-  }
-  .qt-tasks {
-    padding-right: 20px;
-    font-family: "Poppins", sans-serif;
-    color: #292827;
-  }
   // STYLE TASKITEM
   .contentTask {
     display: flex;
@@ -592,7 +628,6 @@ export default {
   }
 }
 
-
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .body-app .box-task .task-item {
@@ -605,5 +640,4 @@ export default {
     font-size: 1rem;
   }
 }
-
 </style>
