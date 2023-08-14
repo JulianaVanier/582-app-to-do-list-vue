@@ -2,7 +2,13 @@
   <HeaderApp></HeaderApp>
   <section class="body-app">
     <div class="box-body">
-      <div class="box-body-left">
+      <div
+        class="box-body-left"
+        :class="[collapsed ? 'collapsed' : 'expanded']"
+      >
+        <div class="box-menu">
+          <img src="/img/menu.png" alt="" @click.prevent="toggleMenu" />
+        </div>
         <CategoriesLists
           :lists="lists"
           :tasks="tasks"
@@ -13,6 +19,9 @@
         ></CategoriesLists>
       </div>
       <div class="box-body-right">
+        <div class="box-menu">
+          <img src="/img/menu.png" alt="" @click.prevent="toggleMenu" />
+        </div>
         <ListOfTasks
           :tasks="tasks"
           :lists="lists"
@@ -36,6 +45,7 @@
 import CategoriesLists from "./components/CategoriesLists.vue";
 import ListOfTasks from "./components/ListOfTasks.vue";
 import HeaderApp from "./components/HeaderApp.vue";
+// import MenuButton from "./components/MenuButton.vue";
 // import { onMounted } from "vue";
 // import { ref } from "vue";
 
@@ -46,6 +56,7 @@ export default {
       idListDisplay: 0,
       idListImportant: 0,
       nameListDisplay: "",
+      collapsed: false,
       lists: [
         {
           id: 1,
@@ -98,7 +109,7 @@ export default {
         },
         {
           id: 5,
-          name: " Secure hotel accommodation within the Disney Resort for the duration of the trip.",
+          name: "Secure hotel accommodation within the Disney Resort for the duration of the trip.",
           date: "2023-01-05",
           listId: 3,
           labelImportant: false,
@@ -106,7 +117,7 @@ export default {
         },
         {
           id: 6,
-          name: " Make advanced dining reservations at popular Disney restaurants.",
+          name: "Make advanced dining reservations at popular Disney restaurants.",
           date: "2023-01-06",
           listId: 3,
           labelImportant: false,
@@ -122,7 +133,7 @@ export default {
         },
         {
           id: 8,
-          name: "Set up a dedicated savings account for the upcoming vacation using automated transfers.",
+          name: "Set up a dedicated savings account for the upcoming vacation",
           date: "2023-01-08",
           listId: 1,
           labelImportant: false,
@@ -130,7 +141,7 @@ export default {
         },
         {
           id: 9,
-          name: "Clean out the dryer vent to ensure proper airflow and prevent potential hazards.",
+          name: "Clean out the dryer vent to ensure proper airflow",
           date: "2023-01-09",
           listId: 2,
           labelImportant: false,
@@ -138,7 +149,7 @@ export default {
         },
         {
           id: 10,
-          name: "Create a detailed daily itinerary, including must-visit attractions and entertainment shows.",
+          name: "Create a detailed daily itinerary, including must-visit attractions",
           date: "2023-01-06",
           listId: 3,
           labelImportant: false,
@@ -146,7 +157,7 @@ export default {
         },
         {
           id: 11,
-          name: "Set a budget for souvenirs and merchandise purchases throughout the trip.",
+          name: "Set a budget for souvenirs purchases throughout the trip.",
           date: "2023-01-07",
           listId: 3,
           labelImportant: false,
@@ -162,7 +173,7 @@ export default {
         },
         {
           id: 13,
-          name: "Rearrange and categorize books on the bookshelf by genre or alphabetical order.",
+          name: "Rearrange and categorize books on the bookshelf",
           date: "2023-01-09",
           listId: 2,
           labelImportant: false,
@@ -175,6 +186,7 @@ export default {
     CategoriesLists,
     ListOfTasks,
     HeaderApp,
+    // MenuButton,
   },
   methods: {
     addLabelImportant(id) {
@@ -222,6 +234,7 @@ export default {
       for (let i = 0; i < this.lists.length; i++) {
         if (this.lists[i].id === id) {
           this.nameListDisplay = this.lists[i].name;
+          this.collapsed = true;
         }
       }
     },
@@ -229,6 +242,7 @@ export default {
       this.idListImportant = true;
       this.idListDisplay = 0;
       this.nameListDisplay = "Important";
+      this.collapsed = true;
     },
     addNewTask(listId, name) {
       // console.log(newTask);
@@ -269,6 +283,9 @@ export default {
         qt: 0,
       });
     },
+    toggleMenu() {
+      this.collapsed = !this.collapsed;
+    },
   },
   mounted: function () {
     this.counterTasksPerList();
@@ -280,6 +297,13 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
+.collapsed {
+  display: none;
+}
+
+.expanded {
+  display: block;
+}
 #app {
   overflow: hidden;
   height: 100vh;
@@ -301,19 +325,21 @@ export default {
 
   .box-body {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100%;
     height: 100%;
     background-color: #faf9f8;
   }
   .box-body-left {
-    width: 15rem;
+    width: 220px;
     height: 100%;
     background-color: white;
     border-right: 1px solid #d5d5d6;
     // display: none;
-    z-index: 2;
+    z-index: 999;
+    position: fixed;
+    left: 0;
   }
   .box-body-right {
     width: 110rem;
@@ -358,7 +384,7 @@ export default {
     width: 100%;
     height: 50px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     align-items: center;
     padding-left: 20px;
     img {
@@ -385,6 +411,7 @@ export default {
       background-color: #ffffff;
       font-family: "Poppins", sans-serif;
       color: #292827;
+      font-size: 12px;
       // font-size: 14px;
       width: 100%;
       height: 50px;
@@ -530,7 +557,7 @@ export default {
     background-color: white;
     font-family: "Poppins", sans-serif;
     /* color: #292827; */
-    width: 100%;
+    // width: 96%;
     height: 50px;
     align-items: center;
     padding-left: 20px;
@@ -543,15 +570,15 @@ export default {
       width: 100%;
       ::placeholder {
         color: #77c9a4;
-        font-size: 16px;
+        font-size: 14px;
         font-family: "Poppins", sans-serif;
       }
       .input-add-task {
         border: none;
         font-family: "Poppins", sans-serif;
-        font-size: 16px;
+        font-size: 12px;
         color: #292827;
-        width: 35%;
+        // width: 83%;
         height: 30px;
       }
       .input-btn {

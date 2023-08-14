@@ -1,5 +1,5 @@
 <template>
-  <div class="box-menu"><img src="/img/menu.png" alt="" /></div>
+  <!-- <div class="box-menu"><img src="/img/menu.png" alt="" /></div> -->
   <div class="box-lists">
     <div class="btn-list" @click="showImportantTasks">
       <img src="/img/icon-star.png" alt="" />Important
@@ -59,7 +59,6 @@ export default {
       required: true,
     },
   },
-
   components: {
     // ListOfTasks,
   },
