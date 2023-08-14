@@ -24,6 +24,7 @@
           @deleteThisTask="deleteThisTask"
           @removeLabelImportant="removeLabelImportant"
           @addNewTask="addNewTask"
+          @taskCompleted="taskCompleted"
         ></ListOfTasks>
       </div>
       <!-- {{ this.counter }} -->
@@ -69,6 +70,7 @@ export default {
           date: "2023-01-01",
           listId: 1,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 2,
@@ -76,6 +78,7 @@ export default {
           date: "2023-01-02",
           listId: 2,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 3,
@@ -83,6 +86,7 @@ export default {
           date: "2023-01-03",
           listId: 2,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 4,
@@ -90,6 +94,7 @@ export default {
           date: "2023-01-04",
           listId: 3,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 5,
@@ -97,6 +102,7 @@ export default {
           date: "2023-01-05",
           listId: 3,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 6,
@@ -104,6 +110,7 @@ export default {
           date: "2023-01-06",
           listId: 3,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 7,
@@ -111,6 +118,7 @@ export default {
           date: "2023-01-07",
           listId: 3,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 8,
@@ -118,6 +126,7 @@ export default {
           date: "2023-01-08",
           listId: 1,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 9,
@@ -125,6 +134,7 @@ export default {
           date: "2023-01-09",
           listId: 2,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 10,
@@ -132,6 +142,7 @@ export default {
           date: "2023-01-06",
           listId: 3,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 11,
@@ -139,6 +150,7 @@ export default {
           date: "2023-01-07",
           listId: 3,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 12,
@@ -146,6 +158,7 @@ export default {
           date: "2023-01-08",
           listId: 1,
           labelImportant: false,
+          completed: false,
         },
         {
           id: 13,
@@ -153,6 +166,7 @@ export default {
           date: "2023-01-09",
           listId: 2,
           labelImportant: false,
+          completed: false,
         },
       ],
     };
@@ -167,7 +181,7 @@ export default {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = true;
-          console.log(this.tasks[i].labelImportant);
+          // console.log(this.tasks[i].labelImportant);
         }
       }
     },
@@ -175,7 +189,14 @@ export default {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           this.tasks[i].labelImportant = false;
-          console.log(this.tasks[i].labelImportant);
+          // console.log(this.tasks[i].labelImportant);
+        }
+      }
+    },
+    taskCompleted(id) {
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].id === id) {
+          this.tasks[i].completed = true;
         }
       }
     },
@@ -284,17 +305,21 @@ export default {
     align-items: center;
     width: 100%;
     height: 100%;
+    background-color: #faf9f8;
   }
   .box-body-left {
-    width: 18%;
+    width: 15rem;
     height: 100%;
     background-color: white;
     border-right: 1px solid #d5d5d6;
+    // display: none;
+    z-index: 2;
   }
   .box-body-right {
-    width: 83%;
+    width: 110rem;
     height: 100%;
     background-color: #faf9f8;
+    z-index: 1;
   }
   .box-lists {
     width: 100%;

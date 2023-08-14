@@ -25,6 +25,7 @@
     @addLabelImportant="addLabelImportant"
     @deleteThisTask="deleteThisTask"
     @removeLabelImportant="removeLabelImportant"
+    @taskCompleted="taskCompleted"
   >
   </TaskItem>
 </template>

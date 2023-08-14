@@ -52,6 +52,7 @@ export default {
     return {
       isAddedImp: false,
       done: false,
+      isCompleted: false,
     };
   },
   methods: {
@@ -70,6 +71,8 @@ export default {
     },
     taskCompleted() {
       this.done = !this.done;
+      this.$emit("taskCompleted", this.tasks.id);
+      this.isCompleted = !this.isCompleted;
     },
   },
 };
