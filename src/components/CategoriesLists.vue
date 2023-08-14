@@ -34,6 +34,7 @@
             placeholder="+ Add new list"
             v-model="name"
             class="input-add-list"
+            maxlength="15"
           />
           <input class="input-btn-list" type="submit" value="+" />
         </form>

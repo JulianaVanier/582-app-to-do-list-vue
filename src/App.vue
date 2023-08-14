@@ -36,7 +36,6 @@
           @taskCompleted="taskCompleted"
         ></ListOfTasks>
       </div>
-      <!-- {{ this.counter }} -->
     </div>
   </section>
 </template>
@@ -45,9 +44,6 @@
 import CategoriesLists from "./components/CategoriesLists.vue";
 import ListOfTasks from "./components/ListOfTasks.vue";
 import HeaderApp from "./components/HeaderApp.vue";
-// import MenuButton from "./components/MenuButton.vue";
-// import { onMounted } from "vue";
-// import { ref } from "vue";
 
 export default {
   name: "App",
@@ -269,14 +265,6 @@ export default {
       }
     },
     addNewList(name) {
-      // if (name === "") {
-      //   alert("Please, enter a name for the list.");
-      // } else {
-      //   this.lists.push({
-      //     id: this.lists.length + 1,
-      //     name: name,
-      //     qt: 0,
-      //   });
       this.lists.push({
         id: this.lists.length + 1,
         name: name,
@@ -406,6 +394,7 @@ header {
     align-items: left;
     .qt-tasks {
       padding-right: 20px;
+      margin-left: 10px;
       font-family: "Poppins", sans-serif;
       color: #292827;
     }
@@ -633,11 +622,30 @@ header {
   .body-app .box-task .task-item {
     font-size: 1rem;
   }
+  .collapsed {
+    display: block !important;
+  }
+  .box-menu {
+    display: none;
+  }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .body-app .box-task .task-item {
     font-size: 1rem;
+  }
+  .collapsed {
+    display: block !important;
+  }
+
+  .box-menu {
+    display: none !important;
+  }
+  .box-body-left {
+    position: relative !important;
+  }
+  .box-lists {
+    padding-top: 50px;
   }
 }
 </style>

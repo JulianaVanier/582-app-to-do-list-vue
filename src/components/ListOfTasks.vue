@@ -11,6 +11,7 @@
         placeholder="+ Add new task"
         v-model="name"
         class="input-add-task"
+        maxlength="40"
       />
       <input class="input-btn" type="submit" value="+" />
     </form>
