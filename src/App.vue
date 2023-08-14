@@ -342,7 +342,7 @@ export default {
     left: 0;
   }
   .box-body-right {
-    width: 110rem;
+    width: 100%;
     height: 100%;
     background-color: #faf9f8;
     z-index: 1;
@@ -411,7 +411,7 @@ export default {
       background-color: #ffffff;
       font-family: "Poppins", sans-serif;
       color: #292827;
-      font-size: 12px;
+      font-size: 0.7rem;
       // font-size: 14px;
       width: 100%;
       height: 50px;
@@ -591,4 +591,19 @@ export default {
     }
   }
 }
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .body-app .box-task .task-item {
+    font-size: 1rem;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .body-app .box-task .task-item {
+    font-size: 1rem;
+  }
+}
+
 </style>
