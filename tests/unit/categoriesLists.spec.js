@@ -1,43 +1,78 @@
-// import { shallowMount } from "@vue/test-utils";
-// import CategoriesLists from "@/components/CategoriesLists";
+import { shallowMount } from "@vue/test-utils";
+import CategoriesLists from "@/components/CategoriesLists.vue";
 
-// describe("CategoriesLists.vue", () => {
-//   // Props
-//   it("renders props.tasks when passed", () => {});
+describe("CategoriesLists.vue", () => {
+  //   // Props
+  it("renders props.tasks when passed", () => {
+    const tasks = {
+      id: 1,
+      name: "Analyze monthly expenses and income to create an updated budget plan.",
+      date: "2023-01-01",
+      listId: 1,
+      labelImportant: false,
+      completed: false,
+    };
 
-//   it("renders props.importantTasks when passed", () => {});
+    const wrapper = shallowMount(CategoriesLists, {
+      props: { tasks },
+    });
 
-//   it("renders props.todayTasks when passed", () => {});
+    expect(wrapper.exists()).toBe(true);
+  });
 
-//   // Button Important
+  //   // Button Important
 
-//   it("important button is calling function displayImportantTasks", () => {});
+  //   it("important button is calling function displayImportantTasks", () => {});
 
-//   it("condition display message", () => {});
+  //   it("condition display message", () => {});
 
-//   it("loop displaying list of importantTasks", () => {});
+  //   it("loop displaying list of importantTasks", () => {});
 
-//   // Button Today
+  //   // Button Today
 
-//   it("important button is calling function displayTodayTasks", () => {});
+  //   it("important button is calling function displayTodayTasks", () => {});
 
-//   it("condition display message", () => {});
+  //   it("condition display message", () => {});
 
-//   it("loop displaying list of todayTasks", () => {});
+  //   it("loop displaying list of todayTasks", () => {});
 
-//   // Import Component
+  //   // Import Component
 
-//   it("import component TaskItem working", () => {});
+  //   it("import component TaskItem working, emits", async () => {
+  //     const allData = {
+  //       props: {
+  //         tasks: {
+  //           id: 1,
+  //           name: "Analyze monthly expenses and income to create an updated budget plan.",
+  //           date: "2023-01-01",
+  //           listId: 1,
+  //           labelImportant: false,
+  //           completed: false,
+  //         },
+  //         lists: [{ id: 1, name: "List 1", qt: 0 }],
+  //       },
+  //     };
 
-//   // Listeners
+  //     const wrapper = shallowMount(CategoriesLists, {
+  //       props: { allData },
+  //     });
 
-//   it("listeners receiving emit", () => {});
+  //     const listButton = wrapper.find('[data-testid="buttonList"]');
+  //     await listButton.trigger("click");
 
-//   // Emit
+  //     expect(wrapper.emitted("tasksOfList")).toBeTruthy();
+  //     expect(wrapper.emitted("tasksOfList")[0][0]).toBe(1);
+  //   });
 
-//   it("emit an addImportant event", () => {});
+  //   // Listeners
 
-//   it("emit an addToday event", () => {});
+  //   it("listeners receiving emit", () => {});
 
-//   it("emit task id event", () => {});
-// });
+  //   // Emit
+
+  //   it("emit an addImportant event", () => {});
+
+  //   it("emit an addToday event", () => {});
+
+  //   it("emit task id event", () => {});
+});
