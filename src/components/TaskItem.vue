@@ -16,7 +16,7 @@
     <p>Responsability: {{ tasks.responsability }}</p> -->
       <div data testid="addImportant">
         <img
-          v-if="!isAddedImp"
+          v-if="tasks.labelImportant === false"
           src="/img/icon-star.png"
           alt="icon star"
           @click="addImportant"
@@ -50,7 +50,6 @@ export default {
   },
   data() {
     return {
-      isAddedImp: false,
       done: false,
       isCompleted: false,
     };
@@ -59,11 +58,9 @@ export default {
     addImportant() {
       // console.log("testimportant");
       this.$emit("addLabelImportant", this.tasks.id);
-      this.isAddedImp = !this.isAddedImp;
     },
     removeImportant() {
       this.$emit("removeLabelImportant", this.tasks.id);
-      this.isAddedImp = !this.isAddedImp;
     },
     deleteTask() {
       // console.log("testdelete");
