@@ -5,12 +5,15 @@
       <input
         type="checkbox"
         name="task"
-        value="{{tasks.id}}"
-        @click="taskCompleted"
+        value="true"
+        @change="taskCompleted"
+        :checked="tasks.completed"
       />
       <!-- <h1>{{ tasks.listName }}</h1> -->
-      <label for="task" :class="{ done }"
-        ><p data-testid="taskName">{{ tasks.name }}</p></label
+      <label for="task" :class="[tasks.completed ? 'done' : '']"
+        ><p data-testid="taskName">
+          {{ tasks.name }}
+        </p></label
       >
       <!-- <p>Date: {{ tasks.date }}</p>
     <p>Responsability: {{ tasks.responsability }}</p> -->
@@ -67,9 +70,7 @@ export default {
       this.$emit("deleteThisTask", this.tasks.id);
     },
     taskCompleted() {
-      this.done = !this.done;
       this.$emit("taskCompleted", this.tasks.id);
-      this.isCompleted = !this.isCompleted;
     },
   },
 };

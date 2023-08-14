@@ -80,6 +80,9 @@ export default {
       this.$emit("addNewTask", idListDisplay, this.name);
       this.name = "";
     },
+    taskCompleted(id) {
+      this.$emit("taskCompleted", id);
+    },
   },
   computed: {
     filterList() {

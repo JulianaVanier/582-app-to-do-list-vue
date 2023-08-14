@@ -208,7 +208,7 @@ export default {
     taskCompleted(id) {
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
-          this.tasks[i].completed = true;
+          this.tasks[i].completed = !this.tasks[i].completed;
         }
       }
     },
