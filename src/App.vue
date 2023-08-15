@@ -622,12 +622,6 @@ header {
   .body-app .box-task .task-item {
     font-size: 1rem;
   }
-  .collapsed {
-    display: block !important;
-  }
-  .box-menu {
-    display: none;
-  }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
@@ -646,6 +640,9 @@ header {
   }
   .box-lists {
     padding-top: 50px;
+  }
+  .body-app .box-body .box-body-left {
+    width: 20%;
   }
 }
 </style>

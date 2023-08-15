@@ -6,10 +6,11 @@ describe("ListOfTasks.vue", () => {
   it("renders props.tasks when passed", () => {
     const tasks = {
       id: 1,
-      name: "Task 1",
+      name: "Analyze monthly expenses and income to create an updated budget plan.",
       date: "2023-01-01",
-      responsability: "Person 1",
-      list_id: 1,
+      listId: 1,
+      labelImportant: false,
+      completed: false,
     };
     const wrapper = shallowMount(ListOfTasks, {
       props: { tasks },
@@ -21,10 +22,11 @@ describe("ListOfTasks.vue", () => {
   it("emits addLabelImportant event when addLabelImportant method is called", async () => {
     const tasks = {
       id: 1,
-      name: "Task 1",
+      name: "Analyze monthly expenses and income to create an updated budget plan.",
       date: "2023-01-01",
-      responsability: "Person 1",
-      list_id: 1,
+      listId: 1,
+      labelImportant: false,
+      completed: false,
     };
     const wrapper = shallowMount(ListOfTasks, {
       props: { tasks },
@@ -39,10 +41,11 @@ describe("ListOfTasks.vue", () => {
   it("emits deleteThisTask event when deleteThisTask method is called", async () => {
     const tasks = {
       id: 1,
-      name: "Task 1",
+      name: "Analyze monthly expenses and income to create an updated budget plan.",
       date: "2023-01-01",
-      responsability: "Person 1",
-      list_id: 1,
+      listId: 1,
+      labelImportant: false,
+      completed: false,
     };
     const wrapper = shallowMount(ListOfTasks, {
       props: { tasks },
@@ -60,17 +63,17 @@ describe("ListOfTasks.vue", () => {
         id: 1,
         name: "Analyze monthly expenses and income to create an updated budget plan.",
         date: "2023-01-01",
-        responsability: "Person 1",
         listId: 1,
         labelImportant: false,
+        completed: false,
       },
       {
         id: 2,
         name: "Dedicate 30 minutes to declutter and organize the kitchen pantry.",
         date: "2023-01-02",
-        responsability: "Person 2",
         listId: 2,
         labelImportant: false,
+        completed: false,
       },
     ];
 
@@ -109,17 +112,17 @@ describe("ListOfTasks.vue", () => {
         id: 1,
         name: "Analyze monthly expenses and income to create an updated budget plan.",
         date: "2023-01-01",
-        responsability: "Person 1",
         listId: 1,
         labelImportant: false,
+        completed: false,
       },
       {
         id: 2,
         name: "Dedicate 30 minutes to declutter and organize the kitchen pantry.",
         date: "2023-01-02",
-        responsability: "Person 2",
         listId: 2,
         labelImportant: false,
+        completed: false,
       },
     ];
 

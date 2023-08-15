@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="box-menu"><img src="/img/menu.png" alt="" /></div> -->
   <div class="box-lists">
     <div class="btn-list" @click="showImportantTasks">
       <img src="/img/icon-star.png" alt="" />Important
@@ -25,8 +24,12 @@
       </div>
     </div>
     <div class="add-new-list">
-      <!-- <div class="btn-add-new-list">Add new list</div> -->
-      <div class="form-add-list" v-if="idListDisplay != 0">
+      <div
+        data
+        testid="form-add-list"
+        class="form-add-list"
+        v-if="idListDisplay != 0"
+      >
         <form @submit.prevent="addNewList">
           <input
             type="text"
@@ -41,13 +44,9 @@
       </div>
     </div>
   </div>
-
-  <!-- <button data testid="deleteList" @click="deleteList">Delete List</button> -->
 </template>
 
 <script>
-// import ListOfTasks from "./ListOfTasks.vue";
-
 export default {
   name: "CategoriesLists",
   props: {

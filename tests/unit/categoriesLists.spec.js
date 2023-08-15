@@ -20,59 +20,21 @@ describe("CategoriesLists.vue", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  //   // Button Important
+  // it("delete list", () => {
+  //   const lists = [
+  //     { id: 1, name: "List 1", qt: 3 },
+  //     { id: 2, name: "List 2", qt: 5 },
+  //   ];
 
-  //   it("important button is calling function displayImportantTasks", () => {});
-
-  //   it("condition display message", () => {});
-
-  //   it("loop displaying list of importantTasks", () => {});
-
-  //   // Button Today
-
-  //   it("important button is calling function displayTodayTasks", () => {});
-
-  //   it("condition display message", () => {});
-
-  //   it("loop displaying list of todayTasks", () => {});
-
-  //   // Import Component
-
-  //   it("import component TaskItem working, emits", async () => {
-  //     const allData = {
-  //       props: {
-  //         tasks: {
-  //           id: 1,
-  //           name: "Analyze monthly expenses and income to create an updated budget plan.",
-  //           date: "2023-01-01",
-  //           listId: 1,
-  //           labelImportant: false,
-  //           completed: false,
-  //         },
-  //         lists: [{ id: 1, name: "List 1", qt: 0 }],
-  //       },
-  //     };
-
-  //     const wrapper = shallowMount(CategoriesLists, {
-  //       props: { allData },
-  //     });
-
-  //     const listButton = wrapper.find('[data-testid="buttonList"]');
-  //     await listButton.trigger("click");
-
-  //     expect(wrapper.emitted("tasksOfList")).toBeTruthy();
-  //     expect(wrapper.emitted("tasksOfList")[0][0]).toBe(1);
+  //   const wrapper = shallowMount(CategoriesLists, {
+  //     props: {
+  //       lists: lists,
+  //       tasks: [],
+  //     },
   //   });
 
-  //   // Listeners
-
-  //   it("listeners receiving emit", () => {});
-
-  //   // Emit
-
-  //   it("emit an addImportant event", () => {});
-
-  //   it("emit an addToday event", () => {});
-
-  //   it("emit task id event", () => {});
+  //   wrapper.vm.deleteList(1);
+  //   expect(wrapper.vm.lists).toHaveLength(1);
+  //   expect(wrapper.vm.lists[0].name).toBe("List 2");
+  // });
 });

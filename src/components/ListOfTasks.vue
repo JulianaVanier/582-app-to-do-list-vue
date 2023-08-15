@@ -2,7 +2,6 @@
   <div class="box-title-list">
     <h2>{{ nameListDisplay }}</h2>
   </div>
-  <!-- <div class="box-add-task" v-if="idListDisplay != 0">+ Add new task</div> -->
   <div class="form-add-task" v-if="idListDisplay != 0">
     <form @submit.prevent="addNewTask(idListDisplay)">
       <input
@@ -88,7 +87,6 @@ export default {
   computed: {
     filterList() {
       var list = [];
-      // console.log("here", this.idListDisplay);
       if (this.idListImportant === true) {
         for (let i = 0; i < this.tasks.length; i++) {
           if (this.tasks[i].labelImportant === true) {
@@ -99,7 +97,6 @@ export default {
         for (let i = 0; i < this.tasks.length; i++) {
           if (this.tasks[i].listId === this.idListDisplay) {
             list.push(this.tasks[i]);
-            // console.log(list);
           }
         }
       }

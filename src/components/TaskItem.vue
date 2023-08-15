@@ -1,5 +1,4 @@
 <template>
-  <!-- <h2>{{ list.name }}</h2> -->
   <div class="box-task">
     <div class="task-item">
       <input
@@ -9,14 +8,11 @@
         @change="taskCompleted"
         :checked="tasks.completed"
       />
-      <!-- <h1>{{ tasks.listName }}</h1> -->
       <label for="task" :class="[tasks.completed ? 'done' : '']"
         ><p data-testid="taskName">
           {{ tasks.name }}
         </p></label
       >
-      <!-- <p>Date: {{ tasks.date }}</p>
-    <p>Responsability: {{ tasks.responsability }}</p> -->
       <div data testid="addImportant">
         <img
           v-if="tasks.labelImportant === false"
@@ -59,14 +55,12 @@ export default {
   },
   methods: {
     addImportant() {
-      // console.log("testimportant");
       this.$emit("addLabelImportant", this.tasks.id);
     },
     removeImportant() {
       this.$emit("removeLabelImportant", this.tasks.id);
     },
     deleteTask() {
-      // console.log("testdelete");
       this.$emit("deleteThisTask", this.tasks.id);
     },
     taskCompleted() {
