@@ -6,8 +6,8 @@
     <div v-for="list in lists" :key="list.id" class="contentTask">
       <div
         class="btn-list"
-        data
-        testid="buttonList"
+        data-testid="buttonList"
+        id="buttonList"
         @click="showTasksOfList(list.id)"
       >
         <img src="/img/icon-list.png" alt="icon list" />{{ list.name }}
@@ -24,12 +24,7 @@
       </div>
     </div>
     <div class="add-new-list">
-      <div
-        data
-        testid="form-add-list"
-        class="form-add-list"
-        v-if="idListDisplay != 0"
-      >
+      <div data testid="form-add-list" class="form-add-list">
         <form @submit.prevent="addNewList">
           <input
             type="text"
