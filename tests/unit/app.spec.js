@@ -292,7 +292,6 @@ describe("App.vue", () => {
       completed: false,
     };
 
-
     await wrapper.vm.addNewTask(newTask);
     expect(wrapper.vm.tasks.length).toBe(3);
   });
@@ -326,8 +325,6 @@ describe("App.vue", () => {
         },
       ],
     });
-
-
 
     await wrapper.vm.counterTasksPerList(1);
     expect(wrapper.vm.lists[0].qt).toBe(2);
@@ -372,5 +369,4 @@ describe("App.vue", () => {
     await wrapper.vm.addNewList(newList);
     expect(wrapper.vm.lists.length).toBe(2);
   });
-
 });

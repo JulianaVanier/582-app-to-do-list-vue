@@ -1,7 +1,12 @@
 <template>
   <div class="box-lists">
     <div class="btn-list" @click="showImportantTasks">
-      <img src="/img/icon-star.png" alt="" />Important
+      <img
+        v-if="taskInImportant === false"
+        src="/img/icon-star.png"
+        alt="icon star empty"
+      />
+      <img v-else src="/img/favourite.png" alt="icon star full" />Important
     </div>
     <div v-for="list in lists" :key="list.id" class="contentTask">
       <div
@@ -51,6 +56,10 @@ export default {
     },
     lists: {
       type: Object,
+      required: true,
+    },
+    taskInImportant: {
+      type: Boolean,
       required: true,
     },
   },

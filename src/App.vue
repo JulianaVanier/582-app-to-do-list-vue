@@ -12,6 +12,7 @@
         <CategoriesLists
           :lists="lists"
           :tasks="tasks"
+          :taskInImportant="taskInImportant"
           @tasksOfList="tasksOfList"
           @importantList="importantList"
           @deleteList="deleteList"
@@ -50,7 +51,8 @@ export default {
   data() {
     return {
       idListDisplay: 0,
-      idListImportant: 0,
+      idListImportant: false,
+      taskInImportant: false,
       nameListDisplay: "",
       collapsed: false,
       lists: [
@@ -192,6 +194,7 @@ export default {
           // console.log(this.tasks[i].labelImportant);
         }
       }
+      this.checkIfTaskImportant();
     },
     removeLabelImportant(id) {
       for (let i = 0; i < this.tasks.length; i++) {
@@ -200,6 +203,7 @@ export default {
           // console.log(this.tasks[i].labelImportant);
         }
       }
+      this.checkIfTaskImportant();
     },
     taskCompleted(id) {
       for (let i = 0; i < this.tasks.length; i++) {
@@ -261,6 +265,15 @@ export default {
         }
       }
     },
+    checkIfTaskImportant() {
+      this.taskInImportant = false;
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].labelImportant === true) {
+          this.taskInImportant = true;
+        }
+        break;
+      }
+    },
     addNewList(name) {
       this.lists.push({
         id: this.lists.length + 1,
@@ -274,6 +287,7 @@ export default {
   },
   mounted: function () {
     this.counterTasksPerList();
+    this.checkIfTaskImportant();
   },
 };
 </script>
