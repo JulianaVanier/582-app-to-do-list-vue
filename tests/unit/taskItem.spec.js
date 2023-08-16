@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import TaskItem from "@/components/TaskItem.vue";
 
 describe("TaskItem.vue", () => {
-  it("renders props tasks when passed", () => {
+  it("renders and display props tasks when passed", () => {
     const tasks = {
       id: 1,
       name: "Analyze monthly expenses and income to create an updated budget plan.",
