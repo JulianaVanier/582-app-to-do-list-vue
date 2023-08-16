@@ -240,8 +240,6 @@ export default {
       this.collapsed = true;
     },
     addNewTask(listId, name) {
-      // console.log(newTask);
-      // console.log(idListDisplay);
       this.tasks.push({
         id: this.tasks.length + 1,
         name: name,
