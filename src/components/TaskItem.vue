@@ -17,13 +17,13 @@
         <img
           v-if="tasks.labelImportant === false"
           src="/img/icon-star.png"
-          alt="icon star"
+          alt="icon star empty"
           @click="addImportant"
         />
         <img
           v-else
           src="/img/favourite.png"
-          alt="icon star"
+          alt="icon star full"
           @click="removeImportant"
         />
       </div>
