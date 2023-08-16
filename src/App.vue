@@ -209,7 +209,6 @@ export default {
       }
     },
     deleteThisTask(id) {
-      // if (confirm("Are you sure you want to delete this task?") != true) return;
       for (let i = 0; i < this.tasks.length; i++) {
         if (this.tasks[i].id === id) {
           this.tasks.splice(i, 1);
@@ -277,7 +276,6 @@ export default {
   },
   mounted: function () {
     this.counterTasksPerList();
-    // console.log("ju");
   },
 };
 </script>
